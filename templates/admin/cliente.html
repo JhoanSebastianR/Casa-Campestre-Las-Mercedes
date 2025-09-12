@@ -1,0 +1,88 @@
+{% include 'admin/cabecera.html' %}
+
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos del Libro</div>
+            <div class="card-body">
+                <form action="/admin/cliente/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_cliente:</label>
+                        <input type="text" class="form-control" name="id_cliente" id="id_cliente" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" name="apellido_cliente" id="apellido_cliente" aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">sexo:</label>
+                        <input type="text" class="form-control" name="sexo_cliente" id="sexo_cliente" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Telefono:</label>
+                        <input type="text" class="form-control" name="telefono_cliente" id="telefono_cliente" aria-describedby="helpId" placeholder="Escriba el numero de telefono del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Direccion:</label>
+                        <input type="text" class="form-control" name="direccion_cliente" id="direccion_cliente" aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">Footer</div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id_cliente</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">sexo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in cliente %}
+                    <tr>
+                        <td>{{ cliente[0] }}</td>
+                        <td>{{ cliente[1] }}</td>
+                        <td>{{ cliente[2] }}</td>
+                        <td>{{ cliente[3] }}</td>
+                        <td>{{ cliente[4] }}</td>
+                        <td>{{ cliente[5] }}</td>
+                        <td>
+                            <form action="/admin/cliente/borrar" method="post">
+                            <input value="{{ cliente[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                
+                             
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/pie.html' %}

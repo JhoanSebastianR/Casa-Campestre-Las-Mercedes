@@ -1,0 +1,64 @@
+{% include 'admin/cabecera.html' %}
+
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos del Libro</div>
+            <div class="card-body">
+                <form action="/admin/tipo_producto/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_tipo_producto:</label>
+                        <input type="text" class="form-control" name="id_tipoproducto" id="id_tipoproducto" aria-describedby="helpId" placeholder="Escriba el id del tipo del producto" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Descripcion:</label>
+                        <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Escriba la descripcion del producto" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">Footer</div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id_tipo_producto</th>
+                        <th scope="col">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipo_producto in tipo_producto %}
+                    <tr>
+                        <td>{{ tipo_producto[0] }}</td>
+                        <td>{{ tipo_producto[1] }}</td>
+                        <td>
+                            
+                            <form action="/admin/tipo_producto/borrar" method="post">
+                            <input value="{{ tipo_producto[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                
+                             
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/pie.html' %}

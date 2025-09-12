@@ -1,0 +1,70 @@
+{% include 'admin/cabecera.html' %}
+
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos del Libro</div>
+            <div class="card-body">
+                <form action="/admin/casa/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_casa:</label>
+                        <input type="text" class="form-control" name="id_casa" id="id_casa" aria-describedby="helpId" placeholder="Escriba el id de la casa" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nom_casa" id="nom_casa" aria-describedby="helpId" placeholder="Escriba el nombre de la propiedad" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Radio_Perimetro:</label>
+                        <input type="text" class="form-control" name="radio_perimetro" id="radio_perimetro" aria-describedby="helpId" placeholder="Escriba el rradio perimetro de la casa" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">Footer</div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id_casa</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Radio_Perimetro</th>
+                        <th scope="col">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for casa in casa %}
+                    <tr>
+                        <td>{{ casa[0] }}</td>
+                        <td>{{ casa[1] }}</td>
+                        <td>{{ casa[2] }}</td>
+                        <td>
+                            <form action="/admin/casa/borrar" method="post">
+                            <input value="{{ casa[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                
+                             
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/pie.html' %}
