@@ -1,0 +1,125 @@
+{% include 'admin/head.html' %}
+
+<div class="pagetitle">
+    <h1>Factura</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/">Hogar</a></li>
+            <li class="breadcrumb-item active">Tablas</li>
+            <li class="breadcrumb-item active">Añadir factura</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos del Libro</div>
+            <div class="card-body">
+                <form action="/admin/factura/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Numero_factura:</label>
+                        <input type="text" class="form-control" name="numero_factura" id="numero_factura"
+                            aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+                    <div class="mb-3">
+
+                        <label for="id_producto" class="form-label">Id_producto :</label>
+                       <select name="id_producto" id="id_producto" class="form-control" required>
+
+                            {% for producto in productos %}
+                            <option value="" hidden>Seleccione</option>
+                            <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[2]}} </option>
+                            {% endfor %}
+ 
+                        </select>
+
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_propietario :</label>
+                        <input type="text" class="form-control" name="id_propietario" id="id_propietario"
+                            aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_cliente :</label>
+                        <input type="text" class="form-control" name="id_cliente" id="id_cliente"
+                            aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Cantidad:</label>
+                        <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId"
+                            placeholder="Escriba la direccion del cliente" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Valor_venta:</label>
+                        <input type="text" class="form-control" name="valor_venta" id="valor_venta"
+                            aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Fecha_venta:</label>
+                        <input type="text" class="form-control" name="fecha_venta" id="fecha_venta"
+                            aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">Footer</div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Numero_factura</th>
+                        <th scope="col">Id_producto</th>
+                        <th scope="col">id_propietario
+                        <th scope="col">Id_cliente</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Valor_venta</th>
+                        <th scope="col">Fecha_venta</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factura in factura %}
+                    <tr>
+                        <td>{{ factura[0] }}</td>
+                        <td>{{ factura[1] }}</td>
+                        <td>{{ factura[2] }}</td>
+                        <td>{{ factura[3] }}</td>
+                        <td>{{ factura[4] }}</td>
+                        <td>{{ factura[5] }}</td>
+                        <td>{{ factura[6] }}</td>
+
+                        <td>
+                            <form action="/admin/factura/borrar" method="post">
+                                <input value="{{ factura[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+
+
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/footer.html' %}

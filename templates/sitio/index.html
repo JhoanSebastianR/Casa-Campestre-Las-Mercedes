@@ -1,69 +1,183 @@
 {% include 'sitio/cabecera.html' %}
 
-        <div class="row align-items-md-stretch">
-            <div class="col-md-6">
-                <div
-                    class="h-100 p-5 text-white bg-primary border rounded-3"
-                >
-                    <h2>Bienvenido</h2>
-                    <p>
-                        Swap the background-color utility and add a `.text-*` color
-                        utility to mix up the jumbotron look. Then, mix and match with
-                        additional component themes and more.
-                    </p>
-                    <button
-                        class="btn btn-outline-primary"
-                        type="button"
-                    >
-                        Example button
-                    </button>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div
-                    class="h-100 p-5 bg-primary border rounded-3"
-                >
-                    <h2>Add borders</h2>
-                    <p>
-                        Or, keep it light and add a border for some added definition
-                        to the boundaries of your content. Be sure to look under the
-                        hood at the source HTML here as we've adjusted the alignment and
-                        sizing of both column's content for equal-height.
-                    </p>
-                    <button
-                        class="btn Swap the background-color utility and add a `.text-*` color
-                        utility to mix up the jumbotron look. Then, mix and match with
-                        additional component themes and more."
-                        type="button"
-                    >
-                        Example button
-                    </button>
-                </div>
-            </div>
+
+  
+
+  <div id="carouselExampleIndicators" class="carousel slide">
+   <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       <img src="{{ url_for('static', filename='img/Imagen_frente.jpg') }}" class="d-block w-100 carrusel-img" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/Imagen_sala de eventos.jpg') }}" class="d-block w-100 carrusel-img" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" class="d-block w-100 carrusel-img" alt="...">
+      </div>
+   </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+<div class="container col-md-7"> 
+
+
+  <br/>
+
+
+
+  <div class="contenedor_icono text-center">
+   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brightness-low-fill" viewBox="0 0 16 16">
+      <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707m7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707M3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707"/>
+    </svg>
+  </div>
+
+  <br/>
+
+  <div class="container border">
+
+    <h2 class="text-center">¡Disfruta de la diversión en la Casa Campestre Las Mercedes!</h2>
+
+    <p class="text-center">Sumérgete en la aventura y vive una experiencia inolvidable con nuestros productos de pasadía y alquiler. Ya sea que nos visites entre semana o durante el fin de semana, encontrarás el lugar perfecto para relajarte y disfrutar en el mejor parque acuático de la región.</p>
+  
+  </div>
+
+  <br/>
+
+
+  <body class="bg-light">
+
+    <div class="container py-5 border border-3 rounded shadow-sm">
+      <div class="row g-4 align-items-center">
+      
+       <!-- Texto -->
+        <div class="col-md-6">
+          <h2 class="fw-bold text-primary">¡ALQUILER TOTAL!</h2>
+
+        
+          <p class="fst-italic">
+            <strong>¡Experiencia de lujo en un lugar que te ofrece todad la comodidad!</strong>
+          </p>
+          <p class="text-muted">
+            Ideal para grupos de amigos y familias
+          </p>
+
+          <h5 class="fw-bold">¿Qué Incluye el <span class="text-warning">alquiler</span>?</h5>
+        
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt-fill text-primary"></i> Disfruta del encanto de la Casa Campestre Las Mercedes, un espacio pensado para el descanso total. Aquí encontrarás el equilibrio perfecto entre comodidad y naturaleza, con amplias instalaciones, piscina privada y jacuzzi, ideales para compartir en familia, con amigos o en pareja. Vive la experiencia de hospedarte en un lugar que lo tiene todo para relajarte y disfrutar.</li>
+
+
+          <a href="/alquiler" class="btn btn-danger btn-lg mt-3">
+            <i class="bi bi-bag-check-fill"></i> Comprar Alquiler!
+          </a>
         </div>
 
-        <br/>
+        <!-- Imagen -->
+        <div class="col-md-6 text-center ">
+          <div class="card shadow-lg border-0">
+            <img src="{{ url_for('static', filename='img/Imagen_frente.jpg') }}" class="card-img-top rounded" alt="Pasadía" width="500" height="500">
+          </div>
+        </div>
 
-        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="..." class="d-block w-100" alt="...">
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+
+  
+  <br/>
+
+  <body class="bg-light">
+
+    <div class="container py-5 border border-3 rounded shadow-sm">
+      <div class="row g-4 align-items-center">
+      
+       <!-- Texto -->
+        <div class="col-md-6">
+          <h2 class="fw-bold text-primary">¡PASA DÍA!</h2>
+
+        
+          <p class="fst-italic">
+            <strong>¡Experiencia de lujo en un lugar que te ofrece todad la comodidad!</strong>
+          </p>
+          <p class="text-muted">
+            Ideal para parejas, grupos de amigos y familias
+          </p>
+
+          <h5 class="fw-bold">¿Qué Incluye el <span class="text-warning">Pasadía</span>?</h5>
+        
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt-fill text-primary"></i> Si buscas un día diferente, La Casa Campestre Las Mercedes te ofrece la opción de pasadía para que disfrutes de nuestra piscina, jacuzzi y zonas verdes, sin necesidad de alquilar la casa completa. Ven con tu grupo, refréscate, descansa y crea recuerdos inolvidables en un entorno natural único.</li>
+          </ul>
+
+          <a href="/alquiler" class="btn btn-danger btn-lg mt-3">
+            <i class="bi bi-bag-check-fill"></i> Comprar ¡Pasadía!
+          </a>
+        </div>
+
+        <!-- Imagen -->
+        <div class="col-md-6 text-center ">
+          <div class="card shadow-lg border-0">
+            <img src="{{ url_for('static', filename='img/Imagen_frente.jpg') }}" class="card-img-top rounded" alt="Pasadía" width="500" height="500">
+          </div>
+        </div>
+
+      </div>
     </div>
-    <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+
+  <br/>
+
+  <body class="bg-light">
+
+    <div class="container py-5 border border-3 rounded shadow-sm">
+      <div class="row g-4 align-items-center">
+      
+       <!-- Texto -->
+        <div class="col-md-6">
+          <h2 class="fw-bold text-primary">¡EVENTOS!</h2>
+
+        
+          <p class="fst-italic">
+            <strong>¡Experiencia de lujo en un lugar que te ofrece todad la comodidad!</strong>
+          </p>
+          <p class="text-muted">
+            Ideal para parejas, grupos de amigos y familias
+          </p>
+
+          <h5 class="fw-bold">¿Qué Incluye los <span class="text-warning">eventos</span>?</h5>
+        
+          <ul class="list-unstyled">
+            <li><i class="bi bi-geo-alt-fill text-primary"></i> Haz de tu celebración un recuerdo inolvidable en la Casa Campestre Las Mercedes. Disponemos de un amplio salón de eventos, piscina, jacuzzi y zonas verdes que se adaptan a todo tipo de ocasión: cumpleaños, reuniones familiares, fiestas privadas o corporativas.
+
+Además, te ofrecemos manteles, decoración y ambientación para las mesas, de manera que tu evento no solo tenga el lugar perfecto, sino también el estilo y el encanto que merece.</li>
+          </ul>
+
+          <a href="/alquiler" class="btn btn-danger btn-lg mt-3">
+            <i class="bi bi-bag-check-fill"></i> Comprar Eventos!
+          </a>
+        </div>
+
+        <!-- Imagen -->
+        <div class="col-md-6 text-center ">
+          <div class="card shadow-lg border-0">
+            <img src="{{ url_for('static', filename='img/Imagen_frente.jpg') }}" class="card-img-top rounded" alt="Pasadía" width="500" height="500">
+          </div>
+        </div>
+
+      </div>
     </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+
 </div>
+
 
 {% include 'sitio/pie.html' %}

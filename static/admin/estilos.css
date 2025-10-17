@@ -1,0 +1,22 @@
+.carrusel-img {
+  max-height: 400px;
+  object-fit: cover;
+}
+
+ /* Para que la imagen mantenga proporción */
+.card-img-top {
+    object-fit: cover;
+    height: 400px;
+}
+    /* Línea decorativa */
+.divider {
+    border-top: 3px dashed #000;
+    width: 60%;
+    margin: 1rem 0;
+    }
+
+body {
+  background-image: url("/static/img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+}

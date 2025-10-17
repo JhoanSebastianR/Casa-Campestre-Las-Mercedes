@@ -1,0 +1,96 @@
+{% include 'admin/head.html' %}
+
+<div class="pagetitle">
+      <h1>Inventario</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/">Hogar</a></li>
+          <li class="breadcrumb-item active">Tablas</li>
+          <li class="breadcrumb-item active">Añadir inventario</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos del Libro</div>
+            <div class="card-body">
+                <form action="/admin/inventario/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_inventario :</label>
+                        <input type="text" class="form-control" name="id_inventario" id="id_inventario" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Fecha_inventario :</label>
+                        <input type="text" class="form-control" name="fecha_inventario" id="fecha_inventario" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Id_producto :</label>
+                        <input type="text" class="form-control" name="id_producto" id="id_producto" aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Cantidad :</label>
+                        <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Ubicacion:</label>
+                        <input type="text" class="form-control" name="ubicacion" id="ubicacion" aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Agregar</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted">Footer</div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id_inventario </th>
+                        <th scope="col">Fecha_inventario</th>
+                        <th scope="col">id_producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Ubicacion</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inventario in inventario %}
+                    <tr>
+                        <td>{{ inventario[0] }}</td>
+                        <td>{{ inventario[1] }}</td>
+                        <td>{{ inventario[2] }}</td>
+                        <td>{{ inventario[3] }}</td>
+                        <td>{{ inventario[4] }}</td>
+
+                        <td>
+                            <form action="/admin/inventario/borrar" method="post">
+                            <input value="{{ inventario[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                
+                             
+                            </form>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/footer.html' %}

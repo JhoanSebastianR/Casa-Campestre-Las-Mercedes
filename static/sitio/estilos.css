@@ -1,0 +1,9 @@
+/* Imágenes del carrusel */
+.carrusel-img {
+  max-height: 400px;
+  object-fit: cover;
+}
+.contenedor_icono svg {
+  width: 48px;
+  height: 48px;
+}
