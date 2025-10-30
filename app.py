@@ -34,9 +34,9 @@ def inicio():
     return render_template('sitio/index.html')
 
 
-@app.route('/libros')
-def libros():
-    return render_template('sitio/libros.html')
+@app.route('/factura')
+def factura():
+    return render_template('sitio/factura.html')
 
 @app.route('/alquiler')
 def alquiler():
@@ -49,6 +49,15 @@ def pasadia():
 @app.route('/eventos')
 def eventos():
     return render_template('sitio/eventos.html')
+
+@app.route('/reservaeventos')
+def reservaeventos():
+    return render_template('sitio/reservaeventos.html')
+
+
+
+
+
 
 
 @app.route('/admin/')
@@ -115,12 +124,12 @@ def admin_cliente_guardar():
     id_cliente = request.form['id_cliente']
     nombre_cliente = request.form['nombre_cliente']
     apellido_cliente = request.form['apellido_cliente']
-    sexo_cliente = request.form['sexo_cliente']
+    correo_cliente = request.form['correo_cliente']
     telefono_cliente = request.form['telefono_cliente']
     direccion_cliente = request.form['direccion_cliente']
 
-    sql = "INSERT INTO cliente (id_cliente, nombre, apellido, sexo, telefono, direccion) VALUES (%s, %s, %s, %s, %s, %s)"
-    datos = (id_cliente, nombre_cliente, apellido_cliente, sexo_cliente, telefono_cliente, direccion_cliente)
+    sql = "INSERT INTO cliente (id_cliente, nombre, apellido, correo_cliente, telefono, direccion) VALUES (%s, %s, %s, %s, %s, %s)"
+    datos = (id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente)
     conexion = get_db()
     cursor = conexion.cursor()
     cursor.execute(sql,datos)
@@ -130,7 +139,7 @@ def admin_cliente_guardar():
     print(id_cliente)
     print(nombre_cliente)
     print(apellido_cliente)
-    print(sexo_cliente)
+    print(correo_cliente)
     print(telefono_cliente)
     print(direccion_cliente)
 
@@ -405,12 +414,16 @@ def admin_factura():
     cursor.execute("SELECT * FROM `producto`")
     productos = cursor.fetchall()
     conexion.commit()
-    
 
+    cursor.execute("SELECT * FROM `propietario`")
+    propietarios = cursor.fetchall()
+    conexion.commit()
 
+    cursor.execute("SELECT * FROM `cliente`")
+    clientes = cursor.fetchall()
+    conexion.commit()
 
-
-    return render_template('admin/factura.html', factura=factura ,  productos = productos)
+    return render_template('admin/factura.html', factura=factura, productos=productos, propietarios=propietarios , clientes=clientes)
 
 
 @app.route('/admin/factura/guardar', methods=['POST'])
@@ -497,8 +510,12 @@ def admin_producto():
     conexion.commit()
     print(producto)
 
+    cursor.execute("SELECT * FROM `producto`")
+    tipo_producto = cursor.fetchall()
+    conexion.commit()
 
-    return render_template('admin/producto.html', producto=producto)
+
+    return render_template('admin/producto.html', producto=producto , tipo_producto=tipo_producto)
 
 
 @app.route('/admin/producto/guardar', methods=['POST'])
@@ -579,8 +596,12 @@ def admin_inventario():
     conexion.commit()
     print(inventario)
 
+    cursor.execute("SELECT * FROM `producto`")
+    productos = cursor.fetchall()
+    conexion.commit()
 
-    return render_template('admin/inventario.html', inventario=inventario)
+
+    return render_template('admin/inventario.html', inventario=inventario, productos=productos)
 
 
 @app.route('/admin/inventario/guardar', methods=['POST'])

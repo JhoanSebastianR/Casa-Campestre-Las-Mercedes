@@ -27,11 +27,10 @@
 
                         <label for="id_producto" class="form-label">Id_producto :</label>
                        <select name="id_producto" id="id_producto" class="form-control" required>
-
-                            {% for producto in productos %}
-                            <option value="" hidden>Seleccione</option>
-                            <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[2]}} </option>
-                            {% endfor %}
+                       <option value="" hidden>Seleccione</option>
+                       {% for producto in productos %}
+                       <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[2]}} </option>
+                       {% endfor %}
  
                         </select>
 
@@ -39,14 +38,24 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_propietario :</label>
-                        <input type="text" class="form-control" name="id_propietario" id="id_propietario"
-                            aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                        <label for="id_propietario" class="form-label">Id_propietario :</label>
+                        <select name="id_propietario" id="id_propietario" class="form-control" required>
+                            <option value="" hidden>Seleccione</option>
+                            {% for propietario in propietarios %}
+                            <option value="{{ propietario[0] }}"> {{ propietario[0] }} -- {{propietario[1]}} </option>
+                            {% endfor %}
+ 
+                        </select>
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_cliente :</label>
-                        <input type="text" class="form-control" name="id_cliente" id="id_cliente"
-                            aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <label for="id_cliente" class="form-label">Id_cliente :</label>
+                        <select name="id_cliente" id="id_cliente" class="form-control" required>
+                            <option value="" hidden>Seleccione</option>
+                            {% for cliente in clientes %}
+                            <option value="{{ cliente[0] }}"> {{ cliente[0] }} -- {{cliente[1]}} </option>
+                            {% endfor %}
+ 
+                        </select>
                     </div>
 
                     <div class="mb-3">

@@ -23,8 +23,15 @@
                         <input type="text" class="form-control" name="id_producto" id="id_producto" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_tipoproducto :</label>
-                        <input type="text" class="form-control" name="id_tipoproducto" id="id_tipoproducto" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                        <label for="id_tipoproducto" class="form-label">Id_tipoproducto :</label>
+                        <select name="id_tipoproducto" id="id_tipoproducto" class="form-control" required>
+                            <option value="" hidden>Seleccione</option>
+                            {% for tipo_producto in tipo_producto %}
+                            <option value="{{ tipo_producto[0] }}"> {{ tipo_producto[0] }} -- {{tipo_producto[1]}} </option>
+                            {% endfor %}
+ 
+                        </select>
+                        
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Descripcion :</label>

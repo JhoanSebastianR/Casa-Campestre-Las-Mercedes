@@ -27,8 +27,14 @@
                         <input type="text" class="form-control" name="fecha_inventario" id="fecha_inventario" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_producto :</label>
-                        <input type="text" class="form-control" name="id_producto" id="id_producto" aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                        <label for="Id_producto" class="form-label">Id_producto :</label>
+                        <select name="Id_producto id="Id_producto" class="form-control" required>
+                            <option value="" hidden>Seleccione</option>
+                            {% for producto in productos %}
+                            <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[1]}} </option>
+                            {% endfor %}
+ 
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Cantidad :</label>

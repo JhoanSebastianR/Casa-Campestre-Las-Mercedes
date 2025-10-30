@@ -1,59 +1,70 @@
 <!doctype html>
-<html lang="en">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Casa Campestre Las Mercedes</title>
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-          <link rel="stylesheet" href="{{ url_for('static', filename='admin/estilos.css') }}">
-    </head>
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/LogoC.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/LogoC.png') }}" rel="apple-touch-icon">
 
-    <body>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- ✅ Bootstrap Icons (colócalo SIEMPRE después de Bootstrap CSS) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">inicio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin/estilos.css') }}">
+
+  
+</head>
+
+<body>
+
+  <!-- Barra superior -->
+  <div class="top-bar">
+    ¡Disfruta de la diversión en <strong>CASA CAMPESTRE LAS MERCEDES!</strong>
+    <span class="ms-3"><i class="bi bi-globe"></i> RNT. No. 1080293525-3</span>
+    <span class="ms-3"><i class="bi bi-telephone"></i> +57 310 448 8107</span>
+    <span class="ms-3"><i class="bi bi-whatsapp"></i> +57 313 371 8804</span>
+  </div>
+
+ <!-- Menú principal -->
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-white">
+  <div class="container">
+    <!-- LOGO -->
+    <a class="navbar-brand" href="/">
+      <img src="{{ url_for('static', filename='img/logoC.png') }}" alt="Logo de Casa Campestre Las Mercedes" height="55">
+    </a>
+
+    <!-- Botón hamburguesa -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+      aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/libros">libros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/alquiler">Alquiler</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/pasadia">Pasadía</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/eventos">Eventos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin/login">Ingresar</a>
-        </li>
-        
+
+    <!-- Enlaces -->
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="/">Bienvenidos</a></li>
+        <li class="nav-item"><a class="nav-link" href="/alquiler">Alquiler</a></li>
+        <li class="nav-item"><a class="nav-link" href="/pasadia">Pasadía</a></li>
+        <li class="nav-item"><a class="nav-link" href="/eventos">Eventos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <!-- Botones -->
+      <a href="https://maps.app.goo.gl/mBqVB9KcUNMR8gZV9"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-green me-2">
+         <i class="bi bi-geo-alt"></i> ¿Cómo llegar?
+      </a>
+      <a href="/admin/login" class="btn-blue"><i class="bi bi-building"></i> Iniciar sesión</a>
     </div>
   </div>
 </nav>
 
-<div class="container">
-    <br/>
-    
+
+
+  

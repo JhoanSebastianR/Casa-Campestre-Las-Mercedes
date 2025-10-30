@@ -1,6 +1,167 @@
+<footer class="footer-las-mercedes">
+  <div class="footer-overlay"></div>
 
-<h1>Hola</h1>
+  <div class="footer-content">
+    <h2>¿Listo para tu próxima aventura en Casa Campestre Las Mercedes?</h2>
 
+    <div class="footer-sections">
+      <div class="footer-column">
+        <h3>Recepción</h3>
+        <p>📅 Lunes a Jueves: 8:00 a.m. - 6:00 p.m.</p>
+        <p>📅 Viernes a Domingo: 8:00 a.m. - 8:00 p.m.</p>
+        <p>📞 Fijo: 608 2771112</p>
+      </div>
+
+      <div class="footer-column">
+        <h3>Comercial y Eventos</h3>
+        <p>📅 Lunes a Jueves: 7:00 a.m. - 8:00 p.m.</p>
+        <p>📅 Viernes y Sábados: 7:00 a.m. - 10:00 p.m.</p>
+        <p>📅 Domingo: 7:00 a.m. - 12:00 p.m.</p>
+        <p>📱 Celular: 310 448 8107</p>
+      </div>
+
+      <div class="footer-column logo-section">
+        <img src="{{ url_for('static', filename='img/LogoCA.png') }}" alt="Logo Casa Campestre Las Mercedes" class="footer-logo">
+        <p>En Casa Campestre Las Mercedes creamos experiencias inolvidables en un entorno natural lleno de descanso, diversión y buena energía. Un espacio ideal para disfrutar en familia, pareja o con amigos. Tu bienestar es nuestra razón de ser.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Casa Campestre Las Mercedes | Política de Datos | Términos y Condiciones</p>
+  </div>
+</footer>
+
+<style>
+
+
+/* ======== ESTILO GENERAL ======== */
+.footer-las-mercedes {
+  position: relative;
+  color: #f5eeee;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  min-height: 1000px; /* controla el alto total del footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* manda el contenido al piso */
+  background-image: url("{{ url_for('static', filename='img/fondoazul3.jpg') }}");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* ======== CONTENIDO ======== */
+.footer-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px 10% 40px; /* 🔽 bajamos el padding superior al mínimo */
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.35);
+  animation: fadeIn 1.2s ease;
+  /* quitar fondo semitransparente para que se vea solo la imagen de fondo */
+  background: transparent;
+  margin-top: auto; /* 🔥 hace que el contenido se pegue abajo */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== TÍTULO ======== */
+.footer-content h2 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+/* ======== DISTRIBUCIÓN ======== */
+.footer-sections {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* ======== COLUMNAS ======== */
+.footer-column {
+  flex: 1;
+  min-width: 280px;
+  line-height: 1.7;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: #ffe082;
+}
+
+.footer-column p {
+  margin: 5px 0;
+  font-size: 0.97rem;
+  opacity: 0.95;
+  transition: opacity 0.3s;
+}
+
+.footer-column p:hover {
+  opacity: 1;
+}
+
+/* ======== LOGO ======== */
+.logo-section {
+  text-align: center;
+}
+
+.footer-logo {
+  width: 170px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.07);
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+}
+
+/* ======== LÍNEA INFERIOR ======== */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  padding: 25px 0;
+  font-size: 0.9rem;
+  /* quitar fondo semitransparente para mostrar únicamente la imagen de fondo */
+  background: transparent;
+  letter-spacing: 0.5px;
+  z-index: 2;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 900px) {
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-content {
+    padding: 40px 6% 40px;
+  }
+  .footer-content h2 {
+    font-size: 1.8rem;
+  }
+  .footer-logo {
+    width: 140px;
+  }
+}
+</style>
 
 </div>
         

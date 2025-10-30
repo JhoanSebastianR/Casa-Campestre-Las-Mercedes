@@ -16,7 +16,862 @@
     }
 
 body {
-  background-image: url("/static/img/fondo.jpg");
+  background-image: url("");
   background-size: cover;
   background-position: center;
 }
+
+body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Barra superior */
+    .top-bar {
+      background-color: #0a9abf;
+      color: white;
+      font-size: 0.95rem;
+      padding: 6px 0;
+      text-align: center;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand img {
+      height: 80px;
+    }
+
+    /* Enlaces del menú */
+    .nav-link {
+      color: #000 !important;
+      font-weight: 500;
+      margin: 0 12px;
+      position: relative;
+      transition: color 0.3s ease-in-out;
+    }
+
+    /* Hover */
+    .nav-link:hover {
+      color: #f1c40f !important;
+    }
+
+    /* Activo: no cambiar color por defecto; solo resaltado por hover */
+    .nav-link.active {
+      color: inherit !important;
+    }
+
+    /* Línea animada */
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #f1c40f;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Botones */
+    .btn-green {
+      background-color: #64b45f;
+      color: #fff;
+      border-radius: 25px;
+      padding: 8px 20px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-green:hover {
+      background-color: #53984e;
+      color: white;
+    }
+
+    .btn-blue {
+      background: linear-gradient(to right, #0071ff, #0028a3);
+      color: #fff;
+      border-radius: 25px;
+      padding: 8px 20px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .btn-blue:hover {
+      opacity: 0.9;
+      color: white;
+    }
+
+    .btn-blue i, .btn-green i {
+      margin-right: 6px;
+    }
+
+
+
+/* --- TARJETAS --- */
+.card-hover {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-origin: center center;
+  cursor: pointer;
+}
+
+/* Hace que la tarjeta crezca al pasar el cursor */
+.card-hover:hover {
+  transform: scale(1.08) translateY(-8px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+  z-index: 20;
+}
+
+/* --- EVITAR RESTRICCIONES DE CONTENEDORES PADRE --- */
+.container,
+.row,
+.col-md-6 {
+  overflow: visible !important;
+}
+
+/* --- DETALLES VISUALES --- */
+.titulo span {
+  color: #d97706;
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+  border: none;
+}
+
+.btn-warning:hover {
+  background-color: #d97706;
+}
+
+.carousel-inner img {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 300px;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+
+.card-hover {
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen ocupa toda la tarjeta */
+.card-hover img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Efecto sutil de movimiento */
+.card-hover:hover img {
+  transform: scale(1.1);
+}
+
+/* Botón sobre la imagen */
+.btn-comprar {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Aparece solo al pasar el mouse */
+.card-hover:hover .btn-comprar {
+  opacity: 1;
+}
+
+/* Sin fondo amarillo */
+.bienvenida {
+  background-color: #fff !important;
+}
+
+
+/* Asegura que el contenido no quede oculto debajo del menú fijo */
+body {
+  padding-top: 90px;
+}
+
+/* Navbar general */
+.navbar {
+  transition: all 0.3s ease-in-out;
+  z-index: 1050; /* siempre por encima */
+}
+
+/* Fondo blanco con sombra */
+.navbar.bg-white {
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Links del menú */
+.nav-link {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f1c40f !important; /* hover en amarillo */
+}
+
+/* Botones personalizados */
+.btn-green {
+  background-color: #16a34a;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-green:hover {
+  background-color: #15803d;
+  color: #fff;
+}
+
+.btn-blue {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-blue:hover {
+  background-color: #1e40af;
+  color: #fff;
+}
+
+/* --- Barra superior (azul) --- */
+.top-bar {
+  background-color: #0a9abf;
+  color: white;
+  font-size: 0.95rem;
+  padding: 6px 0;
+  text-align: center;
+  width: 100%;
+  position: relative; /* se mueve con el scroll */
+  z-index: 1060;
+}
+
+/* --- Navbar (blanca y fija) --- */
+.navbar {
+  position: sticky; /* 👈 se queda pegada al llegar al top */
+  top: 0;
+  width: 100%;
+  background-color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1050;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- Espacio para que nada quede oculto --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  padding-top: 0; /* 👈 ya no lo necesitamos tan alto */
+}
+
+.video-container {
+  /* Full-bleed horizontal: ocupa todo el ancho de la ventana incluso dentro de un contenedor centrado */
+  position: relative;
+  width: 100vw; /* ancho de la ventana */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw; /* extiende al borde izquierdo de la ventana */
+  margin-right: -50vw; /* extiende al borde derecho de la ventana */
+  overflow: hidden;
+  z-index: 0; /* se mantiene en el flujo */
+  animation: fadeInVideo 1.2s ease-in forwards;
+}
+
+.video-container video {
+  display: block;
+  width: 100%; /* cubrir todo el ancho horizontal */
+  height: auto; /* mantener proporción */
+  max-height: 75vh; /* aumentado: ahora ocupa un poco más de altura vertical */
+  object-fit: cover; /* recorta si es necesario para mantener aspecto */
+  /* Mejora perceptual de nitidez: ligero aumento de contraste/saturación y optimizaciones de render */
+  -webkit-filter: contrast(1.06) saturate(1.04);
+  filter: contrast(1.06) saturate(1.04);
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Ajuste para pantallas pequeñas: reducir altura para no ocupar demasiado espacio */
+@media (max-width: 768px) {
+  .video-container video {
+    max-height: 65vh; /* aumentado en móviles también */
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.video-overlay p {
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+/* Eliminado bloque vacío: la animación ya se aplica en la definición principal de .video-container */
+
+@keyframes fadeInVideo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+.social-icons-fixed {
+  position: fixed;
+  top: 40%;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.social-icons-fixed a {
+  background: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.social-icons-fixed a i {
+  font-size: 22px;
+  color: #333;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efectos hover para cada red */
+.social-icons-fixed a:hover .bi-instagram {
+  color: #E4405F;
+  transform: scale(1.2);
+}
+
+.social-icons-fixed a:hover .bi-facebook {
+  color: #1877F2;
+  transform: scale(1.2);
+}
+
+.social-icons-fixed a:hover .bi-tiktok {
+  color: #000;
+  transform: scale(1.2);
+}
+
+.social-icons-fixed a:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* --- RESERVAVA --- */
+
+    .reserva-page {
+      font-family: "Poppins", sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 40px;
+    }
+
+    .reserva-page .container {
+      max-width: 700px;
+      background: #fff;
+      margin: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+
+    .reserva-page h2, 
+    .reserva-page h3 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .reserva-page form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .reserva-page label {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .reserva-page input, 
+    .reserva-page select {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .reserva-page button {
+      background: #008b5e;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .reserva-page button:hover {
+      background: #006c4a;
+    }
+
+    .reserva-page .resumen {
+      display: none;
+    }
+
+    .reserva-page .resumen table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .reserva-page .resumen td {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .reserva-page .resumen td:first-child {
+      font-weight: 600;
+      color: #333;
+    }
+
+    .reserva-page .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #006c4a;
+      text-align: right;
+    }
+
+    .reserva-page .exito {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      background: #e8f9f0;
+      border-radius: 12px;
+      color: #008b5e;
+      font-weight: 600;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .reserva-page .botones-exito {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .reserva-page .botones-exito button {
+      background: #008b5e;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .reserva-page .botones-exito button:hover {
+      background: #006c4a;
+    }
+
+    /* --- FACTURA --- */
+
+    /* ===============================
+   ESTILOS AISLADOS FACTURA
+   =============================== */
+.factura-page {
+  font-family: "Poppins", sans-serif;
+  background: #f2f2f2;
+  padding: 40px;
+  min-height: 100vh;
+}
+
+.factura-page .factura {
+  background: #ffffff;
+  max-width: 750px;
+  margin: auto;
+  padding: 40px 35px;
+  border-radius: 18px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.factura-page h2 {
+  text-align: center;
+  color: #008b5e;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.factura-page .info {
+  margin-bottom: 25px;
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #008b5e;
+}
+
+.factura-page .info p {
+  margin: 5px 0;
+  color: #333;
+  font-size: 15px;
+}
+
+.factura-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.factura-page td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #444;
+  font-size: 15px;
+}
+
+.factura-page td:first-child {
+  font-weight: 600;
+  color: #222;
+  width: 45%;
+}
+
+.factura-page .total {
+  text-align: right;
+  font-weight: 700;
+  color: #006c4a;
+  font-size: 19px;
+  margin-top: 15px;
+}
+
+.factura-page .acciones {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.factura-page button {
+  background: #008b5e;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.factura-page button:hover {
+  background: #006c4a;
+  transform: scale(1.05);
+}
+
+/* ✅ Estilos para impresión */
+@media print {
+  .factura-page {
+    background: white;
+    padding: 0;
+  }
+  .factura-page .factura {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  .factura-page .acciones {
+    display: none;
+  }
+}
+/* ===============================
+   SECCIÓN ATRACCIONES Y SERVICIOS
+   =============================== */
+.atracciones-servicios {
+  font-family: "Poppins", sans-serif;
+  padding: 50px 20px;
+  background: transparent;
+}
+
+.atracciones-servicios .titulo-seccion {
+  text-align: center;
+  color: #007b8f;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+}
+
+/* TARJETAS */
+.tarjeta-servicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  background: #fff;
+  border: 2px solid #dce6ef;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px 35px;
+  margin: 50px auto;
+  max-width: 1000px;
+  position: relative;
+}
+
+/* INTERCALADO DE TARJETAS (NO DE IMÁGENES) */
+.tarjeta-servicio:nth-child(odd) {
+  margin-left: 70px;
+}
+.tarjeta-servicio:nth-child(even) {
+  margin-right: 70px;
+}
+
+/* CONTENIDO DE TEXTO */
+.tarjeta-servicio .contenido {
+  flex: 1;
+}
+.tarjeta-servicio h3 {
+  color: #00445a;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.tarjeta-servicio ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.tarjeta-servicio ul li {
+  color: #333;
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+/* 🎠 CARRUSEL DE IMÁGENES */
+.tarjeta-servicio .imagen {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 15px;
+  max-width: 420px;
+  height: 250px;
+  position: relative;
+}
+
+/* Contenedor de imágenes */
+.carrusel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  animation: deslizar 12s infinite linear;
+}
+
+/* Imagen individual */
+.carrusel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0
+}
+
+/* ===============================
+   SECCIÓN ATRACCIONES Y SERVICIOS
+   =============================== */
+.atracciones-servicios {
+  background: #f9fafc;
+  padding: 80px 0;
+}
+
+.atracciones-servicios .titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+/* ===== Tarjetas ===== */
+.tarjeta-servicio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 2px solid #e0e6ed;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.tarjeta-servicio:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Contenido */
+.tarjeta-servicio .contenido {
+  flex: 1;
+}
+
+.tarjeta-servicio .contenido h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #007b8f;
+}
+
+.tarjeta-servicio .contenido ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tarjeta-servicio .contenido ul li {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 18px;
+}
+
+.tarjeta-servicio .contenido ul li::before {
+  content: "•";
+  color: #007b8f;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+/* ===== Carrusel ===== */
+.tarjeta-servicio .imagen {
+  flex: 1;
+}
+
+.tarjeta-servicio .carousel {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 2px solid #e0e6ed;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-servicio .carousel img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Efecto hover */
+.tarjeta-servicio .carousel img:hover {
+  transform: scale(1.08);
+}
+
+/* ===== Controles del carrusel (flechas) ===== */
+.tarjeta-servicio .carousel-control-prev,
+.tarjeta-servicio .carousel-control-next {
+  width: 6%;
+  background: none !important; /* 💡 Elimina el óvalo */
+  border: none;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-servicio .carousel-control-prev:hover,
+.tarjeta-servicio .carousel-control-next:hover {
+  transform: translateY(-50%) scale(1.2);
+}
+
+/* Flechas visibles (sin fondo ovalado) */
+.tarjeta-servicio .carousel-control-prev-icon,
+.tarjeta-servicio .carousel-control-next-icon {
+  filter: invert(1) drop-shadow(0 0 3px rgba(0,0,0,0.4));
+  width: 2.2rem;
+  height: 2.2rem;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 991px) {
+  .tarjeta-servicio {
+    flex-direction: column;
+  }
+  .tarjeta-servicio:nth-child(even) {
+    flex-direction: column;
+  }
+  .tarjeta-servicio .carousel img {
+    height: 250px;
+  }
+}
+
+
+.titulo-decorado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.titulo-decorado .linea {
+  flex: 1;
+  height: 1px;
+  background-color: #ddd;
+  max-width: 150px;
+}
+
+.titulo-decorado i {
+  font-size: 1.5rem;
+  color: #f8d775; /* Color del ícono, puedes cambiarlo */
+}
+
+.titulo-decorado .texto {
+  color: #333;
+}
+
