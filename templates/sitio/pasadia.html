@@ -3,21 +3,22 @@
 
 
 <!-- Sección de bienvenida -->
-<section class="bienvenida text-center py-5">
+<section class="pasadia text-center py-5 bg-light">
   <div class="container">
-    <div class="icono-sol mb-3">
-      <i class="bi bi-brightness-high-fill fs-1 text-warning"></i>
+    <div class="icono-picnic mb-3">
+      <i class="bi bi-emoji-sunglasses-fill fs-1 text-warning"></i>
     </div>
     <h2 class="titulo fw-bold">
-      ¡Disfruta del encanto en <span class="text-primary">CASA CAMPESTRE LAS MERCEDES!</span>
+      ¡Vive un <span class="text-primary">pasadía inolvidable</span> en el corazón del campo!
     </h2>
     <p class="descripcion mt-3 fs-5 text-muted">
-      Sumérgete en la tranquilidad del campo y vive una experiencia inolvidable con nuestros servicios de 
-      <strong>pasadía</strong> y <strong>alojamiento</strong>. Ya sea que nos visites entre semana o durante el fin de semana, 
-      encontrarás el lugar perfecto para relajarte, disfrutar y reconectarte con la naturaleza 🌿.
+      Deja atrás la rutina y disfruta un día lleno de sol, descanso y buena vibra 😎.  
+      En <strong>Casa Campestre Las Mercedes</strong> te esperan la brisa del campo, la piscina, los paisajes  
+      y momentos que se sienten como un abrazo de la naturaleza 🌿🌞.
     </p>
   </div>
 </section>
+
 
 
 <section class="atracciones-servicios">
@@ -30,20 +31,25 @@
       <ul>
         <li>Uno de los lugares más visitados de nuestra casa campestre.</li>
         <li>La piscina tiene una profundidad de 1.65 m.</li>
+        <li>La piscina cuenta con cascada</li>
         <li>El jacuzzi tiene una profundidad de 1 m.</li>
+        <li>El jacuzzi cuenta con cascada e hidromasajes</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselPiscina" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 1">
+            <img src="{{ url_for('static', filename='img/piscina.jpg') }}" alt="Piscina 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 2">
+            <img src="{{ url_for('static', filename='img/jacuzzi.jpg') }}" alt="Piscina 2">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 3">
+            <img src="{{ url_for('static', filename='img/piscina3.jpg') }}" alt="Piscina 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/jacuzzi3.jpg') }}" alt="Piscina 3">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselPiscina" data-bs-slide="prev">
@@ -63,21 +69,24 @@
     <div class="contenido">
       <h3>🎉 SALA DE EVENTOS</h3>
       <ul>
-        <li>Arco decorativo, luces de discoteca y cámaras de humo.</li>
         <li>Ambiente ideal para celebraciones familiares y empresariales.</li>
+        <li>Arco decorativo, mariposa de espejo, buffet de dulces, punto de fotos,Set de 3 mesas espiral con espej, luces de discoteca y cámaras de humo.</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos1.jpg') }}" alt="Eventos 1">
+            <img src="{{ url_for('static', filename='img/sala de eventos.jpg') }}" alt="Eventos 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos2.jpg') }}" alt="Eventos 2">
+            <img src="{{ url_for('static', filename='img/sala de eventos2.jpg') }}" alt="Eventos 2">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos3.jpg') }}" alt="Eventos 3">
+            <img src="{{ url_for('static', filename='img/sala de eventos3.jpg') }}" alt="Eventos 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/punto de fotos.jpg') }}" alt="Eventos 3">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
@@ -105,13 +114,10 @@
       <div id="carouselTejo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo1.jpg') }}" alt="Tejo 1">
+            <img src="{{ url_for('static', filename='img/cancha de tejo.jpg') }}" alt="Tejo 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo2.jpg') }}" alt="Tejo 2">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo3.jpg') }}" alt="Tejo 3">
+            <img src="{{ url_for('static', filename='img/cancha de tejo2.jpg') }}" alt="Tejo 2">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselTejo" data-bs-slide="prev">
@@ -131,22 +137,22 @@
     <div class="contenido">
       <h3>🔥 BBQ</h3>
       <ul>
-        <li>Equipado con barril, parrilla y horno artesanal.</li>
         <li>Perfecto para comidas al aire libre.</li>
+        <li>Equipado con barril, parrilla, horno artesanal ademas de todos los utencilios de cocina y platos echos en barrro.</li>
+        
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselBBQ" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
+          <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq1.jpg') }}" alt="BBQ 1">
+            <img src="{{ url_for('static', filename='img/Cocina1.jpg') }}" alt="BBQ 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq2.jpg') }}" alt="BBQ 2">
+            <img src="{{ url_for('static', filename='img/Cocina2.jpg') }}" alt="BBQ 2">
           </div>
-          <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq3.jpg') }}" alt="BBQ 3">
-          </div>
+          
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselBBQ" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -181,11 +187,19 @@
         <h2 class="fw-bold text-primary">¡PASADÍA!</h2>
         <p class="fst-italic"><strong>¡Vive un día diferente en un entorno natural único!</strong></p>
         <p class="text-muted">Ideal para parejas, grupos de amigos y familias.</p>
-        <h5 class="fw-bold">¿Qué incluye el <span class="text-warning">pasadía</span>?</h5>
+        <h5 class="fw-bold">Datos del <span class="text-warning">pasadía</span></h5>
         <ul class="list-unstyled">
-          <li><i class="bi bi-geo-alt-fill text-primary"></i> Si buscas un día distinto...</li>
+          <li><i class="bi bi-geo-alt-fill text-primary"></i> Ubicacion: a 30 minutos de Ibague vía Payande San Luis Tolima </li>
+          <li>El pasadía diurno publico es a $25.000 por persona y si es una pareja a $100.000 los dos.</li>
+          <li>El pasadía nocturno publico es a $30.000 por persona y si es una pareja a $100.000 los dos.</li>
+          <li>El pasadia dirno privado es a $50.000 por persona con un minimo de 10 personas.</li>
+          <li>El pasadia nocturno privado es a $50.000 por persona con un minimo de 10 personas.</li>
+          <li>El pasadía diurno va de 8 am hasta las 5 pm y el pasadía nocturno de 5 pm a 1 am.</li>
+          <br/>
+          <li>Para mas informacion escribenos al</li>
+          <i class="bi bi-whatsapp"></i> 310 448 8107 - 313 371 8804
         </ul>
-        <a href="/pasadia" class="btn btn-warning btn-lg mt-3 text-white shadow-sm">
+        <a href="/reservapasadia" class="btn btn-warning btn-lg mt-3 text-white shadow-sm">
           <i class="bi bi-bag-check-fill"></i> ¡Reservar Pasadía!
         </a>
       </div>
@@ -199,10 +213,16 @@
                 <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" class="d-block w-100 rounded" alt="Piscina">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/Imagen_jardin.jpg') }}" class="d-block w-100 rounded" alt="Jardín">
+                <img src="{{ url_for('static', filename='img/piscina3.jpg') }}" class="d-block w-100 rounded" alt="Jardín">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/Imagen_jacuzzi.jpg') }}" class="d-block w-100 rounded" alt="Jacuzzi">
+                <img src="{{ url_for('static', filename='img/jacuzzi2.jpg') }}" class="d-block w-100 rounded" alt="Jacuzzi">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/jacuzzi_azul.jpg') }}" class="d-block w-100 rounded" alt="Jacuzzi">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/punto de fotos.jpg') }}" class="d-block w-100 rounded" alt="Jacuzzi">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselPasadia" data-bs-slide="prev">

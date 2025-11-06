@@ -15,34 +15,41 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos del propietario</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/propietario/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_propietario:</label>
-                        <input type="text" class="form-control" name="id_propietario" id="id_propietario" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <label for="id_propietario" class="form-label">Número de documento del propietario:</label>
+                        <input type="text" class="form-control" name="id_propietario" id="id_propietario" aria-describedby="helpId" placeholder="Escriba el número de documento del propietario" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" aria-describedby="helpId" placeholder="Escriba el nombre del propietario" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Apellido:</label>
-                        <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                        <label for="apellido" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido" aria-describedby="helpId" placeholder="Escriba el apellido del propietario" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">sexo:</label>
-                        <input type="text" class="form-control" name="sexo" id="sexo" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <label for="sexo" class="form-label">sexo:</label>
+                        <input type="text" class="form-control" name="sexo" id="sexo" aria-describedby="helpId" placeholder="Escriba la sexo del propietario" />
                     </div>
                     
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_casa:</label>
-                        <input type="text" class="form-control" name="id_casa" id="id_casa" aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                        <label for="id_casa" class="form-label">Id de la propiedad:</label>
+                        <select name="id_casa" id="id_casa" class="form-control" required>
+                       <option value="" hidden>Seleccione la propiedad</option>
+                       {% for casa in casa %}
+                       <option value="{{ casa[0] }}"> {{ casa[0] }} -- {{casa[1]}} -- {{casa[2]}} </option>
+                       {% endfor %}
+ 
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar propietario</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -52,11 +59,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id_propietario</th>
+                        <th scope="col">Número de documento del propietario</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
                         <th scope="col">sexo</th>
-                        <th scope="col">Id_casa</th>
+                        <th scope="col">Id de la propiedad</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,9 +75,9 @@
                         <td>{{ propietario[3] }}</td>
                         <td>{{ propietario[4] }}</td>
                         <td>
-                            <form action="/admin/propietarios/borrar" method="post">
+                            <form action="/admin/propietario/borrar" method="post">
                             <input value="{{ propietario[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                <button type="submit" class="btn btn btn-danger">Eliminar</button>
                                 
                              
                             </form>

@@ -1,0 +1,124 @@
+{% include 'admin/head.html' %}
+
+<div class="pagetitle">
+  <h1>Reserva pasadía</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/admin/">Hogar</a></li>
+      <li class="breadcrumb-item active">Tablas</li>
+      <li class="breadcrumb-item active">Añadir reserva pasadía</li>
+    </ol>
+  </nav>
+</div>
+<!-- End Page Title -->
+
+<div class="row">
+  <!-- Formulario de reserva -->
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">Datos de la reserva de pasadía</div>
+      <br />
+      <div class="card-body">
+        <form action="/admin/reservas_pasadia/guardar" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="id_cliente" class="form-label">Número de documento:</label>
+            <input type="text" class="form-control" name="id_cliente" id="id_cliente"
+              placeholder="Escriba el número de documento del cliente" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="nombre_cliente" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente"
+              placeholder="Escriba el nombre del cliente" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="apellido_cliente" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" name="apellido_cliente" id="apellido_cliente"
+              placeholder="Escriba el apellido del cliente" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="correo_cliente" class="form-label">Correo electrónico:</label>
+            <input type="email" class="form-control" name="correo_cliente" id="correo_cliente"
+              placeholder="Escriba el correo electrónico del cliente" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad de personas:</label>
+            <input type="number" class="form-control" name="cantidad" id="cantidad"
+              placeholder="Escriba la cantidad de personas" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="fecha_pasadia" class="form-label">Fecha del pasadía:</label>
+            <input type="date" class="form-control" name="fecha_pasadia" id="fecha_pasadia" required />
+          </div>
+
+          <div class="mb-3">
+            <label for="id_producto" class="form-label">Id del servicio:</label>
+            <select name="id_producto" id="id_producto" class="form-control" required>
+              <option value="" hidden>Seleccione el servicio</option>
+              {% for producto in producto %}
+              <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{ producto[1] }} -- {{ producto[2] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="total" class="form-label">Total:</label>
+            <input type="number" class="form-control" name="total" id="total"
+              placeholder="Escriba el total del servicio" required />
+          </div>
+
+          <button type="submit" class="btn btn-primary">Agregar reserva</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabla de reservas -->
+  <div class="col-md-7">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Documento</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Fecha pasadía</th>
+            <th scope="col">Id servicio</th>
+            <th scope="col">Total</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for reserva in reservas_pasadia %}
+          <tr>
+            <td>{{ reserva[0] }}</td>
+            <td>{{ reserva[1] }}</td>
+            <td>{{ reserva[2] }}</td>
+            <td>{{ reserva[3] }}</td>
+            <td>{{ reserva[4] }}</td>
+            <td>{{ reserva[5] }}</td>
+            <td>{{ reserva[6] }}</td>
+            <td>{{ reserva[7] }}</td>
+            <td>{{ reserva[8] }}</td>
+            <td>
+              <form action="/admin/reservas_pasadia/borrar" method="post">
+                <input value="{{ reserva[0] }}" type="hidden" name="txtID" id="txtID">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% include 'admin/footer.html' %}

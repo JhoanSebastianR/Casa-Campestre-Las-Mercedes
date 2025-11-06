@@ -15,12 +15,13 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos del cliente</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/cliente/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_cliente:</label>
-                        <input type="text" class="form-control" name="id_cliente" id="id_cliente" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <label for="nombrejhjh_libro" class="form-label">Número de documento:</label>
+                        <input type="text" class="form-control" name="id_cliente" id="id_cliente" aria-describedby="helpId" placeholder="Escriba el número de documento del cliente" />
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Nombre:</label>
@@ -32,20 +33,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Correo electronico:</label>
-                        <input type="text" class="form-control" name="correo_cliente" id="correo_cliente" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <input type="text" class="form-control" name="correo_cliente" id="correo_cliente" aria-describedby="helpId" placeholder="Escriba el correo electrónico del cliente" />
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Telefono:</label>
-                        <input type="text" class="form-control" name="telefono_cliente" id="telefono_cliente" aria-describedby="helpId" placeholder="Escriba el numero de telefono del cliente" />
+                        <input type="text" class="form-control" name="telefono_cliente" id="telefono_cliente" aria-describedby="helpId" placeholder="Escriba el número de telefono del cliente" />
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Direccion:</label>
-                        <input type="text" class="form-control" name="direccion_cliente" id="direccion_cliente" aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                        <input type="text" class="form-control" name="direccion_cliente" id="direccion_cliente" aria-describedby="helpId" placeholder="Escriba la dirección del cliente" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar cliente</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -55,13 +56,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id_cliente</th>
+                        <th scope="col">Número de documento</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
-                        <th scope="col">sexo</th>
+                        <th scope="col">Correo electronico</th>
                         <th scope="col">Telefono</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Accion</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,7 +77,7 @@
                         <td>
                             <form action="/admin/cliente/borrar" method="post">
                             <input value="{{ cliente[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                <button type="submit" class="btn btn btn-danger">Eliminar</button>
                                 
                              
                             </form>

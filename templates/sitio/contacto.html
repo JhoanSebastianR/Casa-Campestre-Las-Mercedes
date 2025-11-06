@@ -1,0 +1,50 @@
+{% include 'sitio/cabecera.html' %}
+
+<div class="container-contacto">
+  <div class="info-contacto">
+
+    <div class="card-contacto">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Dirección</h3>
+      <p>Kilómetro 8 Vereda el Hobo<br>San Luis - Tolima</p>
+    </div>
+
+    <div class="card-contacto">
+      <i class="fas fa-phone"></i>
+      <h3>Llámamos</h3>
+      <p>+57 310 448 8107<br>+57 313 371 8804</p>
+    </div>
+
+    <div class="card-contacto">
+      <i class="fas fa-envelope"></i>
+      <h3>Envíanos un correo electrónico</h3>
+      <p>jhoansebastianramirezgalindo@gmail.com</p>
+    </div>
+
+    <div class="card-contacto">
+      <i class="fas fa-clock"></i>
+      <h3>Horario de apertura</h3>
+      <p>Lunes - Domingos<br>8:00AM - 5:00PM<br>5:00PM - 1:00AM</p>
+    </div>
+
+  </div>
+
+<h1 class="text-center">BUZON DE SUGERENCIAS</h1>
+<br/>
+  <div class="formulario-contacto">
+    <form action="/contacto/guardar" method="post">
+      <div class="fila-form">
+        <input type="text" name="nombre" placeholder="Su nombre" required>
+        <input type="email" name="correo_electronico" placeholder="Tu correo electrónico" required>
+      </div>
+
+      
+      <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+
+      <button type="submit" class="btn-enviar">Enviar mensaje</button>
+    </form>
+  </div>
+</div>
+
+<!-- Iconos de FontAwesome -->
+<script src="https://kit.fontawesome.com/a2e0e6d06d.js" crossorigin="anonymous"></script>

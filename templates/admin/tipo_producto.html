@@ -1,12 +1,12 @@
 {% include 'admin/head.html' %}
 
 <div class="pagetitle">
-      <h1>Tipo del producto</h1>
+      <h1>Tipo del servicio</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/admin/">Hogar</a></li>
           <li class="breadcrumb-item active">Tablas</li>
-          <li class="breadcrumb-item active">Añadir tipo del producto</li>
+          <li class="breadcrumb-item active">Añadir tipo del servicio</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -15,21 +15,22 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos del tipo de servicio</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/tipo_producto/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_tipo_producto:</label>
-                        <input type="text" class="form-control" name="id_tipoproducto" id="id_tipoproducto" aria-describedby="helpId" placeholder="Escriba el id del tipo del producto" />
+                        <label for="nombre_libro" class="form-label">Id del tipo del servicio:</label>
+                        <input type="text" class="form-control" name="id_tipoproducto" id="id_tipoproducto" aria-describedby="helpId" placeholder="Escriba el id del tipo del servicio" />
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Descripcion:</label>
-                        <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Escriba la descripcion del producto" />
+                        <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Escriba la descripcion del servicio" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar tipo del servicio</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -39,7 +40,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id_tipo_producto</th>
+                        <th scope="col">Id del tipo del servicio</th>
                         <th scope="col">Descripcion</th>
                     </tr>
                 </thead>
@@ -52,7 +53,7 @@
 
                             <form action="/admin/tipo_producto/borrar" method="post">
                             <input value="{{ tipo_producto[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>                                
+                                <button type="submit" class="btn btn btn-danger">Eliminar</button>                                
                              
                             </form>
 

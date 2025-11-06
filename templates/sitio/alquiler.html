@@ -2,21 +2,22 @@
 
 
 <!-- Sección de bienvenida -->
-<section class="bienvenida text-center py-5">
+<section class="alquiler text-center py-5 bg-light">
   <div class="container">
-    <div class="icono-sol mb-3">
-      <i class="bi bi-brightness-high-fill fs-1 text-warning"></i>
+    <div class="icono-casa mb-3">
+      <i class="bi bi-house-heart-fill fs-1 text-warning"></i>
     </div>
     <h2 class="titulo fw-bold">
-      ¡Disfruta del encanto en <span class="text-primary">CASA CAMPESTRE LAS MERCEDES!</span>
+      ¡Vive momentos únicos con nuestro <span class="text-primary">servicio de alquiler!</span>
     </h2>
     <p class="descripcion mt-3 fs-5 text-muted">
-      Sumérgete en la tranquilidad del campo y vive una experiencia inolvidable con nuestros servicios de 
-      <strong>pasadía</strong> y <strong>alojamiento</strong>. Ya sea que nos visites entre semana o durante el fin de semana, 
-      encontrarás el lugar perfecto para relajarte, disfrutar y reconectarte con la naturaleza 🌿.
+      Escápate de la rutina y disfruta de una estadía acogedora en <strong>Casa Campestre Las Mercedes</strong>.  
+      Nuestros espacios amplios, cómodos y llenos de encanto están pensados para que te sientas en casa,  
+      rodeado de naturaleza, paz y una brisa que invita a quedarte un día más 🌻🏡.
     </p>
   </div>
 </section>
+
 
 
 <section class="atracciones-servicios">
@@ -29,20 +30,25 @@
       <ul>
         <li>Uno de los lugares más visitados de nuestra casa campestre.</li>
         <li>La piscina tiene una profundidad de 1.65 m.</li>
+        <li>La piscina cuenta con cascada</li>
         <li>El jacuzzi tiene una profundidad de 1 m.</li>
+        <li>El jacuzzi cuenta con cascada e hidromasajes</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselPiscina" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 1">
+            <img src="{{ url_for('static', filename='img/piscina.jpg') }}" alt="Piscina 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 2">
+            <img src="{{ url_for('static', filename='img/jacuzzi.jpg') }}" alt="Piscina 2">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 3">
+            <img src="{{ url_for('static', filename='img/piscina3.jpg') }}" alt="Piscina 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/jacuzzi3.jpg') }}" alt="Piscina 3">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselPiscina" data-bs-slide="prev">
@@ -62,21 +68,24 @@
     <div class="contenido">
       <h3>🎉 SALA DE EVENTOS</h3>
       <ul>
-        <li>Arco decorativo, luces de discoteca y cámaras de humo.</li>
         <li>Ambiente ideal para celebraciones familiares y empresariales.</li>
+        <li>Arco decorativo, mariposa de espejo, buffet de dulces, punto de fotos,Set de 3 mesas espiral con espej, luces de discoteca y cámaras de humo.</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos1.jpg') }}" alt="Eventos 1">
+            <img src="{{ url_for('static', filename='img/sala de eventos.jpg') }}" alt="Eventos 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos2.jpg') }}" alt="Eventos 2">
+            <img src="{{ url_for('static', filename='img/sala de eventos2.jpg') }}" alt="Eventos 2">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos3.jpg') }}" alt="Eventos 3">
+            <img src="{{ url_for('static', filename='img/sala de eventos3.jpg') }}" alt="Eventos 3">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/punto de fotos.jpg') }}" alt="Eventos 3">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
@@ -104,13 +113,10 @@
       <div id="carouselTejo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo1.jpg') }}" alt="Tejo 1">
+            <img src="{{ url_for('static', filename='img/cancha de tejo.jpg') }}" alt="Tejo 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo2.jpg') }}" alt="Tejo 2">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo3.jpg') }}" alt="Tejo 3">
+            <img src="{{ url_for('static', filename='img/cancha de tejo2.jpg') }}" alt="Tejo 2">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselTejo" data-bs-slide="prev">
@@ -130,22 +136,21 @@
     <div class="contenido">
       <h3>🔥 BBQ</h3>
       <ul>
-        <li>Equipado con barril, parrilla y horno artesanal.</li>
         <li>Perfecto para comidas al aire libre.</li>
+        <li>Equipado con barril, parrilla, horno artesanal ademas de todos los utencilios de cocina y platos echos en barrro.</li>
+        
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselBBQ" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq1.jpg') }}" alt="BBQ 1">
+            <img src="{{ url_for('static', filename='img/Cocina1.jpg') }}" alt="BBQ 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq2.jpg') }}" alt="BBQ 2">
+            <img src="{{ url_for('static', filename='img/Cocina2.jpg') }}" alt="BBQ 2">
           </div>
-          <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_bbq3.jpg') }}" alt="BBQ 3">
-          </div>
+          
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselBBQ" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -162,23 +167,24 @@
 
 
 <section class="atracciones-servicios">
-  <h2 class="titulo-seccion">Interior Y SERVICIOS</h2>
+  <h2 class="titulo-seccion">INTERIOR Y SERVICIOS</h2>
 
   <!-- 🏊‍♂️ Piscina y Jacuzzi -->
   <div class="tarjeta-servicio">
     <div class="contenido">
       <h3>🏊‍♂️ Sala - comedor - concciona</h3>
       <ul>
-        <li>Uno de los lugares más visitados de nuestra casa campestre.</li>
-        <li>La piscina tiene una profundidad de 1.65 m.</li>
-        <li>El jacuzzi tiene una profundidad de 1 m.</li>
+        <li>Un lugar perfecto para relajarte y compartir en familia.</li>
+        <li>En la sala cuenta con planta de sonido profecional junto con 4 cavinas,Micrófonos profesionale, un TV de 65" con DirecTV, Winsport+ y Netflix, muebles acolchonados y un mini bar</li>
+        <li>Un comedor de 6 puestos</li>
+        <li>En la cocina cuenta con estufa a gas, todos los utencilios de cocina, nevera y congelador, juego de platos, juego de cubiertos, microondas, extractor de jugo y cafetera</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselPiscina" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 1">
+            <img src="{{ url_for('static', filename='img/Florero.jpg') }}" alt="Piscina 1">
           </div>
           <div class="carousel-item">
             <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" alt="Piscina 2">
@@ -204,22 +210,20 @@
     <div class="contenido">
       <h3>🎉 Habitacion del primer piso</h3>
       <ul>
-        <li>Arco decorativo, luces de discoteca y cámaras de humo.</li>
-        <li>Ambiente ideal para celebraciones familiares y empresariales.</li>
+        <li>Ideal para descansar con tu familia o amigos.</li>
+        <li>La habitación cuenta con tres camarotes dobles en madera con sus respectivas colchonetas ortopedicas con tres colchonetas ortopedicas adicionales, un camping y un baul con tendidos de repuesto.</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselEventos" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos1.jpg') }}" alt="Eventos 1">
+            <img src="{{ url_for('static', filename='img/habitacion primer piso.jpg') }}" alt="Eventos 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos2.jpg') }}" alt="Eventos 2">
+            <img src="{{ url_for('static', filename='img/Habitacion primer piso2.jpg') }}" alt="Eventos 2">
           </div>
-          <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_eventos3.jpg') }}" alt="Eventos 3">
-          </div>
+          
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselEventos" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -238,18 +242,19 @@
     <div class="contenido">
       <h3>🎯 Segundo piso y habitacion</h3>
       <ul>
-        <li>Ideal para compartir con amigos.</li>
-        <li>Incluye tejos, mechas y plastilina profesional.</li>
+        <li>Ideal para descansar y disfrutar de la vista de la casa.</li>
+        <li>La habitación inclouye un camarote doble en madera con sus respectivas colchones ortopedicos, una cama de 2x2, un TV de 65" con DirecTv, Winsport+, Netflix, baño privado, escritorio con impresora y silla masajeadora.</li>
+        <li>En el balcon cuenta con una bicicleta estatica, una cinta de caminar y juego de luces</li>
       </ul>
     </div>
     <div class="imagen">
       <div id="carouselTejo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo1.jpg') }}" alt="Tejo 1">
+            <img src="{{ url_for('static', filename='img/habitacion segundo piso.jpg') }}" alt="Tejo 1">
           </div>
           <div class="carousel-item">
-            <img src="{{ url_for('static', filename='img/Imagen_tejo2.jpg') }}" alt="Tejo 2">
+            <img src="{{ url_for('static', filename='img/escritorio segundo piso.jpg') }}" alt="Tejo 2">
           </div>
           <div class="carousel-item">
             <img src="{{ url_for('static', filename='img/Imagen_tejo3.jpg') }}" alt="Tejo 3">
@@ -279,6 +284,7 @@
 </div>
 
 <br/>
+<br/>
 
 
 
@@ -295,9 +301,14 @@
         <p class="fst-italic"><strong>¡Una experiencia de lujo en un lugar que te ofrece toda la comodidad!</strong></p>
         <p class="text-muted">Ideal para grupos de amigos y familias.</p>
 
-        <h5 class="fw-bold">¿Qué incluye el <span class="text-warning">alquiler</span>?</h5>
+        <h5 class="fw-bold">Datos del <span class="text-warning">alquiler</span></h5>
         <ul class="list-unstyled">
-          <li><i class="bi bi-geo-alt-fill text-primary"></i> Disfruta del encanto de la Casa Campestre Las Mercedes, un espacio pensado para el descanso total...</li>
+          <li><i class="bi bi-geo-alt-fill text-primary"></i> Ubicacion: a 30 minutos de Ibague vía Payande San Luis Tolima </li>
+          <li>Capacidad: 26 personas Máxima en alojamiento y mínimo 10 personas.</li>
+          <li>Alquiler total privado $80.000 por persona tarifa 24 horas mínimo 10 personas.</li>
+          <br/>
+          <li>Para mas informacion escribenos al</li>
+          <i class="bi bi-whatsapp"></i> 310 448 8107 - 313 371 8804
         </ul>
 
         <a href="/reservaeventos" class="btn btn-warning btn-lg mt-3 text-white shadow-sm">
@@ -314,10 +325,16 @@
                 <img src="{{ url_for('static', filename='img/Imagen_frente.jpg') }}" class="d-block w-100 rounded" alt="Casa Campestre Frente">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/Imagen_sala_de_eventos.jpg') }}" class="d-block w-100 rounded" alt="Salón">
+                <img src="{{ url_for('static', filename='img/jacuzzi3.jpg') }}" class="d-block w-100 rounded" alt="Salón">
               </div>
               <div class="carousel-item">
-                <img src="{{ url_for('static', filename='img/Imagen_piscina.jpg') }}" class="d-block w-100 rounded" alt="Piscina">
+                <img src="{{ url_for('static', filename='img/piscina2.jpg') }}" class="d-block w-100 rounded" alt="Piscina">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/piscina4.jpg') }}" class="d-block w-100 rounded" alt="Piscina">
+              </div>
+              <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/casa.jpg') }}" class="d-block w-100 rounded" alt="Piscina">
               </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselAlquiler" data-bs-slide="prev">

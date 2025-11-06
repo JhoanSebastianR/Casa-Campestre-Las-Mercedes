@@ -1,0 +1,62 @@
+{% include 'sitio/cabecera.html' %}
+
+<div class="factura-page">
+  <div class="factura" id="factura">
+    <h2>Reserva Pasadía</h2>
+    <div class="info" id="infoCliente"></div>
+    <table id="tablaFactura"></table>
+    <div class="total" id="totalFactura"></div>
+
+    <div class="acciones">
+      <button onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+      <button onclick="window.location.href='/'">🏠 Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Leer los datos del localStorage
+  const reserva = JSON.parse(localStorage.getItem("facturaPasadia"));
+
+  // Fecha y hora actual
+  const ahora = new Date();
+  const opciones = { 
+    day: 'numeric', 
+    month: 'long', 
+    year: 'numeric', 
+    hour: 'numeric', 
+    minute: '2-digit', 
+    hour12: true 
+  };
+  const fechaActual = ahora.toLocaleString("es-CO", opciones);
+
+  if (!reserva) {
+    document.body.innerHTML = "<h3 style='text-align:center'>No hay factura disponible</h3>";
+  } else {
+    // Mostrar información del cliente
+    document.getElementById("infoCliente").innerHTML = `
+      <p><b>Nombre:</b> ${reserva.nombre_cliente}</p>
+      <p><b>Apellido:</b> ${reserva.apellido_cliente}</p>
+      <p><b>Cédula:</b> ${reserva.id_cliente}</p>
+      <p><b>Correo:</b> ${reserva.correo_cliente}</p>
+      <p><b>Teléfono:</b> ${reserva.telefono_cliente}</p>
+      <p><b>Dirección:</b> ${reserva.direccion_cliente}</p>
+      <p><b>Fecha de reserva:</b> ${fechaActual}</p>
+    `;
+
+    // Mostrar detalles del pasadía
+    document.getElementById("tablaFactura").innerHTML = `
+      <tr><td>Tipo de Pasadía:</td><td>${reserva.tipo_pasadia}</td></tr>
+      <tr><td>Horario:</td><td>${reserva.horario_pasadia}</td></tr>
+      <tr><td><b>Fecha del Pasadía:</b></td><td>${reserva.fecha_pasadia}</td></tr>
+      <tr><td>Personas:</td><td>${reserva.cantidad}</td></tr>
+    `;
+
+    // Mostrar total formateado
+    const total = parseFloat(reserva.total || 0);
+    document.getElementById("totalFactura").innerHTML =
+      `<strong>TOTAL PAGADO:</strong> $${total.toLocaleString("es-CO")}`;
+  }
+</script>
+
+{% include 'sitio/pie.html' %}

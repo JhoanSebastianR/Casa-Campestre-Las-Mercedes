@@ -14,25 +14,26 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos de la propiedad</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/casa/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_casa:</label>
-                        <input type="text" class="form-control" name="id_casa" id="id_casa" aria-describedby="helpId" placeholder="Escriba el id de la casa" />
+                        <label for="nombre_libro" class="form-label">Id de la propiedad:</label>
+                        <input type="text" class="form-control" name="id_casa" id="id_casa" aria-describedby="helpId" placeholder="Escriba el id de la propiedad" />
                     </div>
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Nombre:</label>
                         <input type="text" class="form-control" name="nom_casa" id="nom_casa" aria-describedby="helpId" placeholder="Escriba el nombre de la propiedad" />
                     </div>
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Radio_Perimetro:</label>
-                        <input type="text" class="form-control" name="radio_perimetro" id="radio_perimetro" aria-describedby="helpId" placeholder="Escriba el rradio perimetro de la casa" />
+                        <label for="nombre_libro" class="form-label">Radio Perimetro:</label>
+                        <input type="text" class="form-control" name="radio_perimetro" id="radio_perimetro" aria-describedby="helpId" placeholder="Escriba el rradio perimetro de la propiedad" />
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar propiedad</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -42,10 +43,10 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id_casa</th>
+                        <th scope="col">Id de la propiedad</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Radio_Perimetro</th>
-                        <th scope="col">Accion</th>
+                        <th scope="col">Radio Perimetro</th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,7 +58,7 @@
                         <td>
                             <form action="/admin/casa/borrar" method="post">
                             <input value="{{ casa[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                <button type="submit" class="btn btn btn-danger">Eliminar</button>
                                 
                              
                             </form>

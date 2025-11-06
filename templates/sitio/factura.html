@@ -1,9 +1,11 @@
 {% include 'sitio/cabecera.html' %}
 
-  <div class="factura-page">
-    <div class="factura" id="factura">
-    <h2>Factura de Reserva</h2>
+<div class="factura-page">
+  <div class="factura" id="factura">
+    <h2>Reserva Alquiler</h2>
     <div class="info" id="infoCliente"></div>
+
+    <h3>Detalles de la Reserva</h3>
     <table id="tablaFactura"></table>
     <div class="total" id="totalFactura"></div>
 
@@ -12,37 +14,53 @@
       <button onclick="window.location.href='/'">🏠 Volver al inicio</button>
     </div>
   </div>
-
-  <script>
-    const reserva = JSON.parse(localStorage.getItem("facturaActual"));
-    if (!reserva) {
-      document.body.innerHTML = "<h3 style='text-align:center'>No hay factura disponible</h3>";
-    } else {
-      document.getElementById("infoCliente").innerHTML = `
-        <p><b>Nombre:</b> ${reserva.nombre}</p>
-        <p><b>Apellido:</b> ${reserva.apellido}</p>
-        <p><b>Cédula:</b> ${reserva.cedula}</p>
-        <p><b>Correo:</b> ${reserva.correo}</p>
-        <p><b>Teléfono:</b> ${reserva.telefono}</p>
-        <p><b>Descripcion:</b> ${reserva.descripcion}</p>
-        <p><b>Propietario:</b> ${reserva.propietario}</p>
-        <p><b>Fecha de reserva:</b> ${reserva.fechaReserva}</p>
-      `;
-
-      document.getElementById("tablaFactura").innerHTML = `
-        <tr><td>Ingreso:</td><td>${reserva.fecha_ingreso} - ${reserva.hora_ingreso}</td></tr>
-        <tr><td>Salida:</td><td>${reserva.fecha_salida} - ${reserva.hora_salida}</td></tr>
-        <tr><td>Personas:</td><td>${reserva.personas_mayores}</td></tr>
-        <tr><td>Valor por persona:</td><td>$${reserva.valorPorPersona.toLocaleString("es-CO")}</td></tr>
-        <tr><td>Subtotal:</td><td>$${reserva.subtotal.toLocaleString("es-CO")}</td></tr>
-        <tr><td>Aseo:</td><td>$150.000</td></tr>
-        <tr><td>Depósito:</td><td>$500.000</td></tr>
-      `;
-      document.getElementById("totalFactura").innerText = `TOTAL PAGADO: $${reserva.total.toLocaleString("es-CO")}`;
-    }
-    </script>
-
-  </div>
 </div>
+
+<script>
+  // Obtener los datos de la reserva desde el almacenamiento local
+  const reserva = JSON.parse(localStorage.getItem("facturaActual"));
+
+  // Generar fecha y hora actuales
+  const ahora = new Date();
+  const opciones = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true
+  };
+  const fechaActual = ahora.toLocaleString("es-CO", opciones);
+
+  if (!reserva) {
+    document.body.innerHTML = "<h3 style='text-align:center'>No hay factura disponible</h3>";
+  } else {
+    // Mostrar información del cliente
+    document.getElementById("infoCliente").innerHTML = `
+      <p><b>Nombre:</b> ${reserva.nombre_cliente}</p>
+      <p><b>Apellido:</b> ${reserva.apellido_cliente}</p>
+      <p><b>Cédula:</b> ${reserva.id_cliente}</p>
+      <p><b>Correo:</b> ${reserva.correo_cliente}</p>
+      <p><b>Teléfono:</b> ${reserva.telefono_cliente}</p>
+      <p><b>Dirección:</b> ${reserva.direccion_cliente}</p>
+      <p><b>Fecha de emisión:</b> ${fechaActual}</p>
+    `;
+
+    // Mostrar detalles de la reserva
+    document.getElementById("tablaFactura").innerHTML = `
+      <tr><td>Ingreso:</td><td>${reserva.fecha_ingreso} ${reserva.hora_ingreso}</td></tr>
+      <tr><td>Salida:</td><td>${reserva.fecha_salida} ${reserva.hora_salida}</td></tr>
+      <tr><td>Personas:</td><td>${reserva.cantidad}</td></tr>
+      <tr><td>Valor por persona:</td><td>$${reserva.valorPorPersona ? reserva.valorPorPersona.toLocaleString("es-CO") : "—"}</td></tr>
+      <tr><td>Subtotal:</td><td>$${reserva.subtotal ? reserva.subtotal.toLocaleString("es-CO") : "—"}</td></tr>
+      <tr><td>Aseo:</td><td>$150.000</td></tr>
+      <tr><td>Depósito:</td><td>$500.000</td></tr>
+    `;
+
+    // Mostrar total final
+    document.getElementById("totalFactura").innerHTML =
+      `<strong>TOTAL PAGADO: $${reserva.total ? reserva.total.toLocaleString("es-CO") : "—"}</strong>`;
+  }
+</script>
 
 {% include 'sitio/pie.html' %}

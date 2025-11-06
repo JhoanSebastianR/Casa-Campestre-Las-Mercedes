@@ -1,0 +1,125 @@
+{% include 'admin/head.html' %}
+
+<div class="pagetitle">
+      <h1>Reserva alquiler</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/">Hogar</a></li>
+          <li class="breadcrumb-item active">Tablas</li>
+          <li class="breadcrumb-item active">Añadir reserva de alquiler</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+<div class="row">
+    <!-- Formulario de libros -->
+    <div class="col-md-5">
+        <div class="card">
+            <div class="card-header">Datos de las reservas de alquiler</div>
+            <br/>
+            <div class="card-body">
+                <form action="/admin/reservas/guardar" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nombrejhjh_libro" class="form-label">Número de documento:</label>
+                        <input type="text" class="form-control" name="id_cliente" id="id_cliente" aria-describedby="helpId" placeholder="Escriba el número de documento del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" name="nombre_cliente" id="nombre_cliente" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control" name="apellido_cliente" id="apellido_cliente" aria-describedby="helpId" placeholder="Escriba el apellido del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre_libro" class="form-label">Correo electronico:</label>
+                        <input type="text" class="form-control" name="correo_cliente" id="correo_cliente" aria-describedby="helpId" placeholder="Escriba el correo electrónico del cliente" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="cantidad" class="form-label">Cantidad de personas:</label>
+                        <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId" placeholder="Escriba la cantidad de personas" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_ingreso" class="form-label">Fecha de ingreso:</label>
+                        <input type="date" class="form-control" name="fecha_ingreso" id="fecha_ingreso" aria-describedby="helpId" placeholder="Escriba la fecha de ingreso" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="fecha_salida" class="form-label">Fecha de salida:</label>
+                        <input type="date" class="form-control" name="fecha_salida" id="fecha_salida" aria-describedby="helpId" placeholder="Escriba la fecha de salida" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_producto" class="form-label">Id del servicio:</label>
+                        <select name="id_producto" id="id_producto" class="form-control" required>
+                            <option value="" hidden>Seleccione el servicio</option>
+                            {% for producto in producto %}
+                            <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[1]}} -- {{producto[2]}} </option>
+                            {% endfor %}
+ 
+                        </select>
+                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="total" class="form-label">Total:</label>
+                        <input type="text" class="form-control" name="total" id="total" aria-describedby="helpId" placeholder="Escriba el total del servicio" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Agregar reserva alquiler</button>
+                </form>
+            </div>
+            <div class="card-footer text-muted"></div>
+        </div>
+    </div>
+    <!-- Fin formulario de libros -->
+    <!-- tabla de recepcion libros -->
+    <div class="col-md-7">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Id de la reserva</th>
+                        <th scope="col">Numero de documento del cliente</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo electronico</th>
+                        <th scope="col">Cantidad de personas</th>
+                        <th scope="col">Fecha del ingreso</th>
+                        <th scope="col">Fecha de salida</th>
+                        <th scope="col">Id del servicio</th>
+                        <th scope="col">Total</th>
+                        <th scope="col"></th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reserva in reservas %}
+                    <tr>
+                        <td>{{ reserva[0] }}</td>
+                        <td>{{ reserva[1] }}</td>
+                        <td>{{ reserva[2] }}</td>
+                        <td>{{ reserva[3] }}</td>
+                        <td>{{ reserva[4] }}</td>
+                        <td>{{ reserva[5] }}</td>
+                        <td>{{ reserva[6] }}</td>
+                        <td>{{ reserva[7] }}</td>
+                        <td>{{ reserva[8] }}</td>
+                        <td>{{ reserva[9] }}</td>
+                        <td>
+                            <form action="/admin/reservas/borrar" method="post">
+                            <input value="{{ reserva[0] }}" type="hidden" name="txtID" id="txtID">
+                                <button type="submit" class="btn btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- fin tabla -->
+</div>
+
+
+
+
+{% include 'admin/footer.html' %}

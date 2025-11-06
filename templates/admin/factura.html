@@ -15,32 +15,26 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos de la factura</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/factura/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Numero_factura:</label>
-                        <input type="text" class="form-control" name="numero_factura" id="numero_factura"
-                            aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
-                    </div>
-                    <div class="mb-3">
-
-                        <label for="id_producto" class="form-label">Id_producto :</label>
-                       <select name="id_producto" id="id_producto" class="form-control" required>
-                       <option value="" hidden>Seleccione</option>
-                       {% for producto in productos %}
-                       <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[2]}} </option>
-                       {% endfor %}
- 
+                        <label for="id_producto" class="form-label">Servicio:</label>
+                        <select name="id_producto" id="id_producto" class="form-control" required>
+                            <option value="" hidden>Seleccione el servicio</option>
+                            {% for producto in productos %}
+                            <option value="{{ producto[0] }}">{{ producto[2] }}</option>
+                            {% endfor %}
                         </select>
 
 
                     </div>
 
                     <div class="mb-3">
-                        <label for="id_propietario" class="form-label">Id_propietario :</label>
+                        <label for="id_propietario" class="form-label">Numero de documento del propietario :</label>
                         <select name="id_propietario" id="id_propietario" class="form-control" required>
-                            <option value="" hidden>Seleccione</option>
+                            <option value="" hidden>Seleccione el propietario</option>
                             {% for propietario in propietarios %}
                             <option value="{{ propietario[0] }}"> {{ propietario[0] }} -- {{propietario[1]}} </option>
                             {% endfor %}
@@ -48,9 +42,9 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="id_cliente" class="form-label">Id_cliente :</label>
+                        <label for="id_cliente" class="form-label">Numero de documento del cliente :</label>
                         <select name="id_cliente" id="id_cliente" class="form-control" required>
-                            <option value="" hidden>Seleccione</option>
+                            <option value="" hidden>Seleccione el cliente</option>
                             {% for cliente in clientes %}
                             <option value="{{ cliente[0] }}"> {{ cliente[0] }} -- {{cliente[1]}} </option>
                             {% endfor %}
@@ -59,26 +53,25 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Cantidad:</label>
+                        <label for="nombre_libro" class="form-label">Cantidad de personas:</label>
                         <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId"
                             placeholder="Escriba la direccion del cliente" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Valor_venta:</label>
+                        <label for="nombre_libro" class="form-label">Valor de la venta:</label>
                         <input type="text" class="form-control" name="valor_venta" id="valor_venta"
                             aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
                     </div>
 
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Fecha_venta:</label>
-                        <input type="text" class="form-control" name="fecha_venta" id="fecha_venta"
-                            aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                        <label for="fecha_venta" class="form-label">Fecha y hora de venta:</label>
+                        <input type="datetime-local" class="form-control" name="fecha_venta" id="fecha_venta" required />
                     </div>
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar factura</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -88,13 +81,13 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Numero_factura</th>
-                        <th scope="col">Id_producto</th>
-                        <th scope="col">id_propietario
-                        <th scope="col">Id_cliente</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Valor_venta</th>
-                        <th scope="col">Fecha_venta</th>
+                        <th scope="col">Nuero de la factura</th>
+                        <th scope="col">Id del servicio</th>
+                        <th scope="col">Numero de propietario</th>
+                        <th scope="col">Numero de documento del cliente</th>
+                        <th scope="col">Cantidad de personas</th>
+                        <th scope="col">Valor de venta</th>
+                        <th scope="col">Fecha de venta</th>
 
                     </tr>
                 </thead>
@@ -112,7 +105,7 @@
                         <td>
                             <form action="/admin/factura/borrar" method="post">
                                 <input value="{{ factura[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
 
 
                             </form>

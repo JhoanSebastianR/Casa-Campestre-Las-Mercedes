@@ -1,173 +1,164 @@
 {% include 'sitio/cabecera.html' %}
-  
 
-  <div class="reserva-page">
-    <div class="container">
-      <h2>Reserva tu estadía</h2>
+<div class="reserva-page">
+  <div class="container">
+    <h2>Reserva tu estadía</h2>
 
-      <!-- FORMULARIO -->
-      <form id="formReserva">
-        <label>Nombre:</label>
-        <input type="text" name="nombre" required />
+    <!-- FORMULARIO -->
+    <form id="formReserva" method="post" enctype="multipart/form-data">
+      <label>Nombre:</label>
+      <input type="text" name="nombre_cliente" required />
 
-        <label>Apellido:</label>
-        <input type="text" name="apellido" required />
+      <label>Apellido:</label>
+      <input type="text" name="apellido_cliente" required />
 
-        <label>Cédula:</label>
-        <input type="text" name="cedula" required />
+      <label>Cédula:</label>
+      <input type="text" name="id_cliente" required />
 
-        <label>Correo electrónico:</label>
-        <input type="email" name="correo" required />
+      <label>Correo electrónico:</label>
+      <input type="email" name="correo_cliente" required />
 
-        <label>Teléfono:</label>
-        <input type="tel" name="telefono" required />
+      <label>Teléfono:</label>
+      <input type="tel" name="telefono_cliente" required />
 
-        <label>Dirección:</label>
-        <input type="tel" name="direccion" required />
+      <label>Dirección:</label>
+      <input type="text" name="direccion_cliente" required />
 
-        <label>Fecha de ingreso:</label>
-        <input type="date" name="fecha_ingreso" id="fecha_ingreso" required />
+      <label>Fecha de ingreso:</label>
+      <input type="date" name="fecha_ingreso" id="fecha_ingreso" required />
 
-        <label>Fecha de salida:</label>
-        <input type="date" name="fecha_salida" id="fecha_salida" required />
+      <label>Fecha de salida:</label>
+      <input type="date" name="fecha_salida" id="fecha_salida" required />
 
-        <label>Hora de ingreso:</label>
-        <select name="hora_ingreso" required>
-          <option value="">Selecciona una hora</option>
-          <option value="8:00 AM">8:00 AM</option>
-          <option value="5:00 PM">5:00 PM</option>
-        </select>
+      <label>Hora de ingreso:</label>
+      <select name="hora_ingreso" required>
+        <option value="">Selecciona una hora</option>
+        <option value="8:00 AM">8:00 AM</option>
+        <option value="5:00 PM">5:00 PM</option>
+      </select>
 
-        <label>Hora de salida:</label>
-        <select name="hora_salida" required>
-          <option value="">Selecciona una hora</option>
-          <option value="8:00 AM">8:00 AM</option>
-          <option value="5:00 PM">5:00 PM</option>
-        </select>
+      <label>Hora de salida:</label>
+      <select name="hora_salida" required>
+        <option value="">Selecciona una hora</option>
+        <option value="8:00 AM">8:00 AM</option>
+        <option value="5:00 PM">5:00 PM</option>
+      </select>
 
-        <label>Número de personas (mínimo 10):</label>
-        <input type="number" name="personas_mayores" min="10" required />
+      <label>Número de personas (mínimo 10):</label>
+      <input type="number" name="cantidad" min="10" required />
 
-        <button type="submit">Continuar</button>
-      </form>
+      <input type="hidden" name="total" id="inputTotal" />
 
-      <!-- RESUMEN -->
-      <div class="resumen" id="resumenReserva">
-        <h3>Confirma tu reserva</h3>
-        <table id="tablaResumen"></table>
-        <div class="total" id="totalPagar"></div>
-        <button id="confirmarPago">Confirmar pago</button>
-      </div>
+      <button type="button" id="btnContinuar">Continuar</button>
+    </form>
 
-      <!-- MENSAJE DE ÉXITO -->
-      <div class="exito" id="reservaExitosa">
-        🎉 ¡Reserva exitosa!  
-        <br><br>Tu reserva ha sido registrada correctamente en el sistema.
-        <div class="botones-exito">
-          <button id="verFactura">Ver factura</button>
-          <button id="volverInicio">Volver al inicio</button>
-        </div>
+    <!-- RESUMEN -->
+    <div class="resumen" id="resumenReserva" style="display:none;">
+      <h3>Confirma tu reserva</h3>
+      <table id="tablaResumen"></table>
+      <div class="total" id="totalPagar"></div>
+      <button id="confirmarPago">Confirmar pago</button>
+    </div>
+
+    <!-- MENSAJE DE ÉXITO -->
+    <div class="exito" id="reservaExitosa" style="display:none;">
+      🎉 ¡Reserva exitosa!
+      <br><br>Tu reserva ha sido registrada correctamente en el sistema.
+      <div class="botones-exito">
+        <button id="verFactura">Ver factura</button>
+        <button id="volverInicio">Volver al inicio</button>
       </div>
     </div>
   </div>
+</div>
 
-  <script>
-    // Configurar fechas mínimas
-    const fechaIngreso = document.getElementById("fecha_ingreso");
-    const fechaSalida = document.getElementById("fecha_salida");
-    const hoy = new Date();
-    hoy.setDate(hoy.getDate() + 7);
-    fechaIngreso.min = hoy.toISOString().split("T")[0];
-    fechaIngreso.addEventListener("change", () => {
-      fechaSalida.min = fechaIngreso.value;
-    });
+<script>
+  // Configurar fechas mínimas
+  const fechaIngreso = document.getElementById("fecha_ingreso");
+  const fechaSalida = document.getElementById("fecha_salida");
+  const hoy = new Date();
+  hoy.setDate(hoy.getDate() + 7);
+  fechaIngreso.min = hoy.toISOString().split("T")[0];
+  fechaIngreso.addEventListener("change", () => {
+    fechaSalida.min = fechaIngreso.value;
+  });
 
-    const form = document.getElementById("formReserva");
-    const resumen = document.getElementById("resumenReserva");
-    const tablaResumen = document.getElementById("tablaResumen");
-    const totalPagar = document.getElementById("totalPagar");
-    const exito = document.getElementById("reservaExitosa");
+  const form = document.getElementById("formReserva");
+  const btnContinuar = document.getElementById("btnContinuar");
+  const resumen = document.getElementById("resumenReserva");
+  const tablaResumen = document.getElementById("tablaResumen");
+  const totalPagar = document.getElementById("totalPagar");
+  const inputTotal = document.getElementById("inputTotal");
 
-    let datosReserva = {};
+  let datosReserva = {};
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+  btnContinuar.addEventListener("click", () => {
+    const data = Object.fromEntries(new FormData(form));
+    datosReserva = data;
 
-      const data = Object.fromEntries(new FormData(form));
-      datosReserva = data;
+    const fechaIn = new Date(data.fecha_ingreso + " " + data.hora_ingreso);
+    const fechaOut = new Date(data.fecha_salida + " " + data.hora_salida);
+    const diffHoras = (fechaOut - fechaIn) / (1000 * 60 * 60);
+    const diasCompletos = Math.floor(diffHoras / 24);
 
-      // Fechas y horas
-      const fechaIn = new Date(data.fecha_ingreso);
-      const fechaOut = new Date(data.fecha_salida);
-      const horaIn = data.hora_ingreso === "8:00 AM" ? 8 : 17;
-      const horaOut = data.hora_salida === "8:00 AM" ? 8 : 17;
-      fechaIn.setHours(horaIn);
-      fechaOut.setHours(horaOut);
+    // Cálculo de valores
+    const aseo = 150000;
+    const deposito = 500000;
+    let valorPorPersona = 0;
 
-      const diffHoras = (fechaOut - fechaIn) / (1000 * 60 * 60);
-      const diasCompletos = Math.floor(diffHoras / 24);
-      const horasRestantes = diffHoras % 24;
+    if (diffHoras <= 24) {
+      valorPorPersona = 80000;
+    } else {
+      valorPorPersona = 80000 * diasCompletos;
+    }
 
-      // Calcular valor por persona
-      let valorPorPersona = 0;
-      if (diffHoras <= 24) {
-        valorPorPersona = 80000;
-      } else {
-        valorPorPersona = (diasCompletos * 80000) + (horasRestantes > 0 ? 120000 : 0);
-      }
+    const subtotal = valorPorPersona * data.cantidad;
+    const total = subtotal + aseo + deposito;
 
-      const aseo = 150000;
-      const deposito = 500000;
-      const subtotal = valorPorPersona * data.personas_mayores;
-      const total = subtotal + aseo + deposito;
+    inputTotal.value = total;
 
-      tablaResumen.innerHTML = `
-        <tr><td>Cliente:</td><td>${data.nombre}</td></tr>
-        <tr><td>Cédula:</td><td>${data.cedula}</td></tr>
-        <tr><td>Correo:</td><td>${data.correo}</td></tr>
-        <tr><td>Ingreso:</td><td>${data.fecha_ingreso} - ${data.hora_ingreso}</td></tr>
-        <tr><td>Salida:</td><td>${data.fecha_salida} - ${data.hora_salida}</td></tr>
-        <tr><td>Duración:</td><td>${diffHoras.toFixed(1)} horas (${diasCompletos} días)</td></tr>
-        <tr><td>Personas:</td><td>${data.personas_mayores}</td></tr>
-        <tr><td>Valor por persona:</td><td>$${valorPorPersona.toLocaleString("es-CO")}</td></tr>
-        <tr><td>Subtotal:</td><td>$${subtotal.toLocaleString("es-CO")}</td></tr>
-        <tr><td>Aseo:</td><td>$${aseo.toLocaleString("es-CO")}</td></tr>
-        <tr><td>Depósito:</td><td>$${deposito.toLocaleString("es-CO")}</td></tr>
-      `;
-      totalPagar.innerHTML = `TOTAL A PAGAR: $${total.toLocaleString("es-CO")}`;
+    // Guardar datos para la factura
+    localStorage.setItem("facturaActual", JSON.stringify({
+      ...data,
+      duracionHoras: diffHoras.toFixed(1),
+      valorPorPersona,
+      subtotal,
+      total
+    }));
 
-      datosReserva = {
-        ...data,
-        valorPorPersona,
-        subtotal,
-        total,
-        duracionHoras: diffHoras,
-        fechaReserva: new Date().toLocaleString()
-      };
+    tablaResumen.innerHTML = `
+      <tr><td>Cliente:</td><td>${data.nombre_cliente} ${data.apellido_cliente}</td></tr>
+      <tr><td>Cédula:</td><td>${data.id_cliente}</td></tr>
+      <tr><td>Correo:</td><td>${data.correo_cliente}</td></tr>
+      <tr><td>Ingreso:</td><td>${data.fecha_ingreso} ${data.hora_ingreso}</td></tr>
+      <tr><td>Salida:</td><td>${data.fecha_salida} ${data.hora_salida}</td></tr>
+      <tr><td>Duración:</td><td>${diffHoras.toFixed(1)} horas</td></tr>
+      <tr><td>Personas:</td><td>${data.cantidad}</td></tr>
+      <tr><td>Valor por persona:</td><td>$${valorPorPersona.toLocaleString("es-CO")}</td></tr>
+      <tr><td>Subtotal:</td><td>$${subtotal.toLocaleString("es-CO")}</td></tr>
+      <tr><td>Aseo:</td><td>$${aseo.toLocaleString("es-CO")}</td></tr>
+      <tr><td>Depósito:</td><td>$${deposito.toLocaleString("es-CO")}</td></tr>
+    `;
 
-      form.style.display = "none";
-      resumen.style.display = "block";
-    });
+    totalPagar.innerHTML = `<strong>TOTAL A PAGAR: $${total.toLocaleString("es-CO")}</strong>`;
 
-    document.getElementById("confirmarPago").addEventListener("click", () => {
-      const reservas = JSON.parse(localStorage.getItem("reservas")) || [];
-      reservas.push(datosReserva);
-      localStorage.setItem("reservas", JSON.stringify(reservas));
+    form.style.display = "none";
+    resumen.style.display = "block";
+  });
 
-      resumen.style.display = "none";
-      exito.style.display = "block";
-    });
+  document.getElementById("confirmarPago").addEventListener("click", () => {
+    form.action = "/reservaeventos/guardar";
+    form.method = "post";
+    form.submit();
+  });
 
-    // Ver factura
-    document.getElementById("verFactura").addEventListener("click", () => {
-      localStorage.setItem("facturaActual", JSON.stringify(datosReserva));
-      window.location.href = "/factura";
-    });
+  document.getElementById("verFactura").addEventListener("click", () => {
+    window.location.href = "/factura";
+  });
 
-    // Volver al inicio
-    document.getElementById("volverInicio").addEventListener("click", () => {
-      window.location.href = "/";
-    });
-  </script>
+  document.getElementById("volverInicio").addEventListener("click", () => {
+    window.location.href = "/";
+  });
+</script>
 
 {% include 'sitio/pie.html' %}

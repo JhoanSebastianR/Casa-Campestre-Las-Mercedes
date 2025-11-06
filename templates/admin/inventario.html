@@ -15,41 +15,41 @@
     <!-- Formulario de libros -->
     <div class="col-md-5">
         <div class="card">
-            <div class="card-header">Datos del Libro</div>
+            <div class="card-header">Datos del inventario</div>
+            <br/>
             <div class="card-body">
                 <form action="/admin/inventario/guardar" method="post" enctype="multipart/form-data">
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Id_inventario :</label>
-                        <input type="text" class="form-control" name="id_inventario" id="id_inventario" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <label for="id_inventario" class="form-label">Id del inventario:</label>
+                        <input type="text" class="form-control" name="id_inventario" id="id_inventario" aria-describedby="helpId" placeholder="Escriba el id del inventario" />
                     </div>
+
                     <div class="mb-3">
-                        <label for="nombre_libro" class="form-label">Fecha_inventario :</label>
-                        <input type="text" class="form-control" name="fecha_inventario" id="fecha_inventario" aria-describedby="helpId" placeholder="Escriba el nombre del cliente" />
+                        <label for="descripcion" class="form-label">Descripcion:</label>
+                        <input type="text" class="form-control" name="descripcion" id="descripcion" aria-describedby="helpId" placeholder="Escriba el id del inventario" />
                     </div>
+
                     <div class="mb-3">
-                        <label for="Id_producto" class="form-label">Id_producto :</label>
-                        <select name="Id_producto id="Id_producto" class="form-control" required>
-                            <option value="" hidden>Seleccione</option>
-                            {% for producto in productos %}
-                            <option value="{{ producto[0] }}"> {{ producto[0] }} -- {{producto[1]}} </option>
-                            {% endfor %}
- 
-                        </select>
+                        <label for="fecha_inventario" class="form-label">Fecha del inventario:</label>
+                        <!-- Uso datetime-local para facilitar la entrada desde el navegador. -->
+                        <input type="datetime-local" class="form-control" name="fecha_inventario" id="fecha_inventario" />
                     </div>
+
+
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Cantidad :</label>
-                        <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId" placeholder="Escriba la cedula del cliente" />
+                        <input type="text" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId" placeholder="Escriba la cantidad del producto" />
                     </div>
                     
                     <div class="mb-3">
                         <label for="nombre_libro" class="form-label">Ubicacion:</label>
-                        <input type="text" class="form-control" name="ubicacion" id="ubicacion" aria-describedby="helpId" placeholder="Escriba la direccion del cliente" />
+                        <input type="text" class="form-control" name="ubicacion" id="ubicacion" aria-describedby="helpId" placeholder="Escriba la ubicacion del producto" />
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Agregar</button>
+                    <button type="submit" class="btn btn-primary">Agregar producto</button>
                 </form>
             </div>
-            <div class="card-footer text-muted">Footer</div>
+            <div class="card-footer text-muted"></div>
         </div>
     </div>
     <!-- Fin formulario de libros -->
@@ -59,9 +59,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Id_inventario </th>
-                        <th scope="col">Fecha_inventario</th>
-                        <th scope="col">id_producto</th>
+                        <th scope="col">Id del producto </th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Fecha del inventario</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Ubicacion</th>
 
@@ -80,7 +80,7 @@
                         <td>
                             <form action="/admin/inventario/borrar" method="post">
                             <input value="{{ inventario[0] }}" type="hidden" name="txtID" id="txtID">
-                                <button type="submit" class="btn btn-primary">Eliminar</button>
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
                                 
                              
                             </form>

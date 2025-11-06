@@ -875,3 +875,140 @@ body {
   color: #333;
 }
 
+/* === CONTENEDOR GENERAL === */
+.container-contacto {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 30px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* === TARJETAS DE INFORMACIÓN === */
+.info-contacto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  margin-bottom: 50px;
+}
+
+.card-contacto {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.25); /* borde más oscuro */
+  border-radius: 12px;
+  padding: 25px 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-contacto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-contacto i {
+  font-size: 30px;
+  color: #3c4bff;
+  margin-bottom: 10px;
+}
+
+.card-contacto h4 {
+  color: #00205b;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-contacto p {
+  color: #444;
+  margin: 3px 0;
+  font-size: 15px;
+}
+
+/* === FORMULARIO DE CONTACTO === */
+.formulario-contacto {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* fila superior (nombre y correo) */
+.formulario-contacto .fila-form {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+/* inputs */
+.formulario-contacto input {
+  width: 100%;
+  padding: 14px 16px;
+  height: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  line-height: 1.2;
+  vertical-align: middle;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+/* textarea */
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  font-size: 1rem;
+  min-height: 200px;
+  resize: vertical;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+/* foco */
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  border-color: rgba(64, 80, 255, 0.9);
+  box-shadow: 0 3px 10px rgba(64, 80, 255, 0.15);
+  outline: none;
+}
+
+/* botón */
+.formulario-contacto button {
+  background: #3c4bff;
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.formulario-contacto button:hover {
+  background: #2f3ce6;
+  transform: translateY(-2px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .formulario-contacto .fila-form {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .container-contacto {
+    padding: 20px;
+  }
+
+  .card-contacto {
+    padding: 20px;
+  }
+}

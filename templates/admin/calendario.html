@@ -1,0 +1,190 @@
+{% include 'admin/head.html' %}
+
+<div class="pagetitle">
+  <h1>Calendario de Reservas</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/admin/">Inicio</a></li>
+      <li class="breadcrumb-item active">Calendario</li>
+    </ol>
+  </nav>
+</div>
+
+<section class="section dashboard">
+  <div class="card p-4 calendar-card">
+    <div id="calendar"></div>
+  </div>
+</section>
+
+<!-- FullCalendar -->
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth',
+      locale: 'es',
+      height: 'auto',
+      events: '/eventos_data',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,listWeek'
+      },
+      eventTextColor: 'white',
+      eventDisplay: 'block',
+      displayEventEnd: true,
+      eventTimeFormat: { hour: '2-digit', minute: '2-digit', hour12: false },
+      eventDidMount: function(info) {
+        // color personalizado
+        if (info.event.extendedProps.color) {
+          info.el.style.backgroundColor = info.event.extendedProps.color;
+        }
+
+        // estilo visual
+        info.el.style.borderRadius = '10px';
+        info.el.style.boxShadow = '0 3px 8px rgba(0, 0, 0, 0.15)';
+        info.el.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+        info.el.onmouseenter = () => {
+          info.el.style.transform = 'scale(1.05)';
+          info.el.style.boxShadow = '0 6px 15px rgba(0, 0, 0, 0.2)';
+        };
+        info.el.onmouseleave = () => {
+          info.el.style.transform = 'scale(1)';
+          info.el.style.boxShadow = '0 3px 8px rgba(0, 0, 0, 0.15)';
+        };
+
+        // tooltip flotante
+        const tooltip = document.createElement('div');
+        tooltip.classList.add('event-tooltip');
+        tooltip.innerHTML = `
+          <strong>${info.event.title}</strong><br>
+          <span>Inicio: ${info.event.start ? info.event.start.toLocaleDateString() : 'N/A'}</span><br>
+          ${info.event.end ? '<span>Fin: ' + info.event.end.toLocaleDateString() + '</span><br>' : ''}
+          ${info.event.extendedProps.total ? '<span>Total: $' + info.event.extendedProps.total + '</span>' : ''}
+        `;
+        document.body.appendChild(tooltip);
+
+        info.el.addEventListener('mouseenter', function(e) {
+          tooltip.style.display = 'block';
+          tooltip.style.left = e.pageX + 10 + 'px';
+          tooltip.style.top = e.pageY + 10 + 'px';
+        });
+
+        info.el.addEventListener('mousemove', function(e) {
+          tooltip.style.left = e.pageX + 10 + 'px';
+          tooltip.style.top = e.pageY + 10 + 'px';
+        });
+
+        info.el.addEventListener('mouseleave', function() {
+          tooltip.style.display = 'none';
+        });
+      }
+    });
+
+    calendar.render();
+  });
+</script>
+
+<style>
+  /* --- CONTENEDOR GENERAL --- */
+  .calendar-card {
+    background: linear-gradient(135deg, #ffffff, #f7f9fc);
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .calendar-card:hover {
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+  }
+
+  #calendar {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 16px;
+  }
+
+  /* --- TÍTULOS Y BOTONES --- */
+  .fc-toolbar-title {
+    color: #004aad;
+    font-weight: 700;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+  }
+
+  .fc-button {
+    border: none !important;
+    background: #0072ff !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 6px 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+  }
+
+  .fc-button:hover {
+    background: #005fd4 !important;
+    transform: scale(1.05);
+  }
+
+  /* --- CÉLULAS Y EVENTOS --- */
+  .fc-day-today {
+    background: #eaf3ff !important;
+    border: 1px solid #0072ff33 !important;
+  }
+
+  .fc-daygrid-day {
+    transition: background 0.2s ease;
+  }
+
+  .fc-daygrid-day:hover {
+    background: #f1f5ff !important;
+  }
+
+  .fc-event {
+    border: none !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 4px 6px;
+  }
+
+  /* --- TOOLTIP --- */
+  .event-tooltip {
+    position: absolute;
+    z-index: 9999;
+    background: #222;
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    white-space: nowrap;
+    pointer-events: none;
+    display: none;
+    animation: fadeIn 0.2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- MIGAS DE PAN --- */
+  .breadcrumb-item a {
+    color: #0072ff;
+    text-decoration: none;
+  }
+
+  .breadcrumb-item.active {
+    color: #495057;
+    font-weight: 600;
+  }
+</style>
+
+{% include 'admin/footer.html' %}
