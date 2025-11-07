@@ -95,9 +95,39 @@
                     {% for factura in factura %}
                     <tr>
                         <td>{{ factura[0] }}</td>
-                        <td>{{ factura[1] }}</td>
-                        <td>{{ factura[2] }}</td>
-                        <td>{{ factura[3] }}</td>
+                        <td>
+                            {# Mostrar descripción del producto en vez del id #}
+                            {% set _found_prod = false %}
+                            {% for prod in productos %}
+                                {% if prod[0] == factura[1] %}
+                                    {{ prod[2] }}
+                                    {% set _found_prod = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not _found_prod %} -- {{ factura[1] }}{% endif %}
+                        </td>
+                        <td>
+                            {# Mostrar nombre y apellido del propietario #}
+                            {% set _found_prop = false %}
+                            {% for prop in propietarios %}
+                                {% if prop[0] == factura[2] %}
+                                    {{ prop[1] }} {{ prop[2] }}
+                                    {% set _found_prop = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not _found_prop %} -- {{ factura[2] }}{% endif %}
+                        </td>
+                        <td>
+                            {# Mostrar nombre y apellido del cliente #}
+                            {% set _found_cli = false %}
+                            {% for cli in clientes %}
+                                {% if cli[0] == factura[3] %}
+                                    {{ cli[1] }} {{ cli[2] }}
+                                    {% set _found_cli = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not _found_cli %} -- {{ factura[3] }}{% endif %}
+                        </td>
                         <td>{{ factura[4] }}</td>
                         <td>{{ factura[5] }}</td>
                         <td>{{ factura[6] }}</td>

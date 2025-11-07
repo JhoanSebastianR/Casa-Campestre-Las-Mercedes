@@ -64,18 +64,24 @@
                     {% for producto in producto %}
                     <tr>
                         <td>{{ producto[0] }}</td>
-                        <td>{{ producto[1] }}</td>
+                        <td>
+                            {# Buscar la descripción del tipo en la lista tipo_producto pasada desde el backend #}
+                            {% set _found = false %}
+                            {% for tp in tipo_producto %}
+                                {% if tp[0] == producto[1] %}
+                                    {{ tp[1] }}
+                                    {% set _found = true %}
+                                {% endif %}
+                            {% endfor %}
+                            {% if not _found %} -- {{ producto[1] }}{% endif %}
+                        </td>
                         <td>{{ producto[2] }}</td>
 
                         <td>
                             <form action="/admin/producto/borrar" method="post">
-                            <input value="{{ producto[0] }}" type="hidden" name="txtID" id="txtID">
+                                <input value="{{ producto[0] }}" type="hidden" name="txtID" id="txtID">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
-                                
-                             
                             </form>
-
-
                         </td>
                     </tr>
                     {% endfor %}
