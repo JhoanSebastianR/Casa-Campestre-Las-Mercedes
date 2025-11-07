@@ -264,7 +264,7 @@ def admin_login_post():
     if _usuario == 'admin' and _password == 'Connor2018':
         session['login'] = True
         session['usuario'] = "Administrador"
-        return redirect('/admin')
+        return redirect('/admin/')
     
     return render_template('admin/login.html')
 
